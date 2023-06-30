@@ -1,3 +1,6 @@
+# 1.0.5
+- Adding kmyuhkyuk-GamePanelHUD
+
 # 1.0.4
 - Added Install instructions
 - Updated Zip file creation to exclude unneeded files
