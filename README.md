@@ -18,13 +18,14 @@ After editing and saving, you can just double click that `SPT.bat` file
 The server and launcher will start, after server window says happy playing, then refresh the launcher and it should connect.
 
 Current Mods
-* TheBlacklist version: 1.1.0 by: Platinum loaded
-* NoDiscardLimit version: 1.0.0 by: Skwizzy loaded
-* SPT Realism Mod version: 0.8.72 by: Fontaine loaded
-* Simple Wave AI Generator (SWAG) version: 2.0.0 by: nooky loaded
-* Softcore version: 1.4.0 by: x-ODT loaded
-* SAIN version: 2.0.0 by: z-Solarint loaded
-* DrakiaXYZ-Waypoints version: 1.1.2 by: DrakiaXYZ loaded
+* TheBlacklist version: 1.1.0 by: Platinum
+* NoDiscardLimit version: 1.0.0 by: Skwizzy
+* SPT Realism Mod version: 0.8.72 by: Fontaine
+* Simple Wave AI Generator (SWAG) version: 2.0.0 by: nooky
+* Softcore version: 1.4.0 by: x-ODT
+* SAIN version: 2.0.0 by: z-Solarint
+* DrakiaXYZ-Waypoints version: 1.1.2 by: DrakiaXYZ
+* GamePanelHUD by: kmyuhkyuk
 
 ### Contributing
 Please create feature branch, and increment VERSION according to https://semver.org/
