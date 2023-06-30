@@ -11,7 +11,8 @@ jobs:
     steps:
     - name: Read VERSION file
       id: getversion
-      run: echo "::set-output name=version::$(cat VERSION)"
+      # run: echo "::set-output name=version::$(cat VERSION)"
+      run: echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
     - name: Print Version number
       run: echo "Building version ${{ steps.getversion.outputs.version }}"
     - name: Checkout
