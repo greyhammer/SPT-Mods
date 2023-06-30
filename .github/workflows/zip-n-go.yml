@@ -20,7 +20,7 @@ jobs:
       with:
         artifacts: "${{ github.event.repository.name }}.v${{ github.run_number }}.0.zip"
         body: "Release v${{ github.run_number }}"
-        tag: "v${{ github.run_number }}"
+        tag: "v${{ github.run_number }}.0"
         removeArtifacts: true
         replacesArtifacts: false
     - name: Discord notification
