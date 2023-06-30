@@ -22,6 +22,7 @@ jobs:
         body: "Release v${{ github.run_number }}"
         tag: "v${{ github.run_number }}"
         removeArtifacts: true
+        replacesArtifacts: false
     - name: Discord notification
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
