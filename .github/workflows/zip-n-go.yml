@@ -8,23 +8,27 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    steps:   
+    steps:
+    - name: Set variables
+      run: |
+        VER=$(cat VERSION)
+        echo "VERSION=$VER" >> $GITHUB_ENV
     - name: Print new build number
-      run: echo "Build number is ${{ github.run_number }}"
+      run: echo "Building version ${{ env.VERSION }}"
     - name: Checkout
       uses: actions/checkout@v3
     - name: Zip Folder
-      run: zip -r ${{ github.event.repository.name }}.v${{ github.run_number }}.0.zip .
+      run: zip -r ${{ github.event.repository.name }}.v${{ env.VERSION }}.zip .
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "${{ github.event.repository.name }}.v${{ github.run_number }}.0.zip"
+        artifacts: "${{ github.event.repository.name }}.v${{ env.VERSION }}.zip"
         body: "Release v${{ github.run_number }} of OZR Singple Player Tarkov Mods - Please use just ${{ github.event.repository.name }}.v${{ github.run_number }}.0.zip"
-        tag: "v${{ github.run_number }}.0"
+        tag: "v${{ env.VERSION }}"
         artifactErrorsFailBuild: true
     - name: Discord notification
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       uses: Ilshidur/action-discord@master
       with:
-        args: '{{ EVENT_PAYLOAD.repository.full_name }} - v${{ github.run_number }}.0 has been built and pushed'
+        args: '{{ EVENT_PAYLOAD.repository.full_name }} - v${{ env.VERSION }} has been built and pushed'
