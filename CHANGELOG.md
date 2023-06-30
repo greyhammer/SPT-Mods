@@ -1,5 +1,5 @@
 # 1.0.5
-- Adding kmyuhkyuk-GamePanelHUD
+- Adding `GamePanelHUD by kmyuhkyuk`
 
 # 1.0.4
 - Added Install instructions
