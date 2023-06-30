@@ -29,4 +29,6 @@ Current Mods
 
 ### Contributing
 Please create feature branch, and increment VERSION according to https://semver.org/
-Then merge to main to trigger CI/CD and release generation
+Update CHANGELONG with your changes
+Then create Pull Request from your feature branch to main branch 
+After PR is approved it will trigger CI/CD pipeline and release generation
