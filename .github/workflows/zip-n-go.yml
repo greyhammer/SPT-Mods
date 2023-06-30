@@ -1,0 +1,33 @@
+name: Create release
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Generate build number
+      id: buildnumber
+      uses: einaregilsson/build-number@v3
+      with:
+        token: ${{secrets.github_token}}        
+    - name: Print new build number
+      run: echo "Build number is $BUILD_NUMBER"
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Zip Folder
+        run: zip -r ${{ github.event.repository.name }}.$BUILD_NUMBER.zip .
+    - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: ${{ github.event.repository.name }}.$BUILD_NUMBER.zip
+        env:
+          GITHUB_TOKEN: ${{secrets.github_token}}
+    - name: Discord notification
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      uses: Ilshidur/action-discord@master
+      with:
+        args: '{{ EVENT_PAYLOAD.repository.full_name }} - version ${{ steps.buildnumber.outputs.build_number }} has been built and pushed'
