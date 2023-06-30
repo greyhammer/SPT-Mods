@@ -17,7 +17,7 @@ jobs:
     - name: Print Version number
       run: echo "Building version ${{ steps.getversion.outputs.version }}"
     - name: Zip Folder
-      run: zip -r ${{ github.event.repository.name }}.v${{ steps.getversion.outputs.version }}.zip .
+      run: zip -r ${{ github.event.repository.name }}.v${{ steps.getversion.outputs.version }}.zip . -x ".git*" -x "CHANGELOG.md" -x "VERSION"
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
