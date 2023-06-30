@@ -14,16 +14,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Zip Folder
-      run: zip -r ${{ github.event.repository.name }}.${{ github.run_number }}.zip .
+      run: zip -r ${{ github.event.repository.name }}.v${{ github.run_number }}.0.zip .
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "${{ github.event.repository.name }}.${{ github.run_number }}.zip"
+        artifacts: "${{ github.event.repository.name }}.v${{ github.run_number }}.0.zip"
         body: "Release v${{ github.run_number }}"
         tag: "v${{ github.run_number }}"
+        removeArtifacts: true
     - name: Discord notification
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       uses: Ilshidur/action-discord@master
       with:
-        args: '{{ EVENT_PAYLOAD.repository.full_name }} - version ${{ github.run_number }} has been built and pushed'
+        args: '{{ EVENT_PAYLOAD.repository.full_name }} - v${{ github.run_number }}.0 has been built and pushed'
