@@ -12,7 +12,7 @@ Install:
 4. Launch Single Player Tarkov like normal
 5. Profit?? 
 
-ALso, We made a script for launching the server and launcher in one click.
+Also, We made a script for launching the server and launcher in one click.
 `SPT.bat` - you will need to edit the file and adjust the first 2 lines to point to your Single Player Tarkov folder.
 After editing and saving, you can just double click that `SPT.bat` file
 The server and launcher will start, after server window says happy playing, then refresh the launcher and it should connect.
