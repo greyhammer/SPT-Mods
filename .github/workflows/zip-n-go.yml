@@ -19,7 +19,7 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         artifacts: "${{ github.event.repository.name }}.v${{ github.run_number }}.0.zip"
-        body: "Release v${{ github.run_number }}"
+        body: "Release v${{ github.run_number }} of OZR Singple Player Tarkov Mods"
         tag: "v${{ github.run_number }}.0"
         artifactErrorsFailBuild: true
     - name: Discord notification
