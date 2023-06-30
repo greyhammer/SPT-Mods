@@ -13,3 +13,7 @@ Current Mods
 * Softcore version: 1.4.0 by: x-ODT loaded
 * SAIN version: 2.0.0 by: z-Solarint loaded
 * DrakiaXYZ-Waypoints version: 1.1.2 by: DrakiaXYZ loaded
+
+### Contributing
+Please create feature branch, and increment VERSION according to https://semver.org/
+Then merge to main to trigger CI/CD and release generation
