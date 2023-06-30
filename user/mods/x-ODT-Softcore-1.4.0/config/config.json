@@ -153,10 +153,10 @@
 	},
 	"TraderChanges": {
 		"_description": "Master toggle for all trader changes below",
-		"enabled": false,
+		"enabled": true,
 		"Better_Sales_To_Traders": {
 			"_description": "Adjusts trader evaluations for selling items (from Prapor 50%, Therapist 63%, Ragman 62%, Jaeger 60%, Mechanic 56%, Peacekeeper 45%, Skier 49% --> Prapor 60%, Therapist 64%, Ragman 63%, Jaeger 62%, Mechanic 61%, Peacekeeper 58%, Skier 59% at loyalty level 1). Also every loyalty level will give 5% better selling evaluation so e.g. at LL4 Propor will buy items for 75% of their value.",
-			"enabled": false
+			"enabled": true
 		},
 		"Alternative_Categories": {
 			"_description": "Nerfs Therapist buying categories (instead of all barter items, she buys only meds and household goods, good for trader diversity), allows Ragman to buy valuables and Skier to buy info items.",
