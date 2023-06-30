@@ -26,7 +26,3 @@ jobs:
       uses: Ilshidur/action-discord@master
       with:
         args: '{{ EVENT_PAYLOAD.repository.full_name }} - version ${{ github.run_number }} has been built and pushed'
-
-
-
-        Error: Failed to create new build-number ref. Status: 403, err: null, result: {"message":"Resource not accessible by integration","documentation_url":"https://docs.github.com/rest/reference/git#create-a-reference"}
