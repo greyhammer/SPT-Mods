@@ -11,7 +11,6 @@ jobs:
     steps:
     - name: Read VERSION file
       id: getversion
-      # run: echo "::set-output name=version::$(cat VERSION)"
       run: echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
     - name: Print Version number
       run: echo "Building version ${{ steps.getversion.outputs.version }}"
@@ -23,7 +22,7 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         artifacts: "${{ github.event.repository.name }}.v${{ steps.getversion.outputs.version }}.zip"
-        body: "Release v${{ github.run_number }} of OZR Singple Player Tarkov Mods - Please use just ${{ github.event.repository.name }}.v${{ github.run_number }}.0.zip"
+        body: "Release v${{ steps.getversion.outputs.version }} of OZR Singple Player Tarkov Mods - Please use just ${{ github.event.repository.name }}.v${{ steps.getversion.outputs.version }}.0.zip"
         tag: "v${{ steps.getversion.outputs.version }}"
         artifactErrorsFailBuild: true
     - name: Discord notification
