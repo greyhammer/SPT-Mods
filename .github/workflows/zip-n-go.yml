@@ -9,13 +9,13 @@ jobs:
     permissions:
       contents: write
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Read VERSION file
       id: getversion
       run: echo "version=$(cat VERSION)" >> $GITHUB_OUTPUT
     - name: Print Version number
       run: echo "Building version ${{ steps.getversion.outputs.version }}"
-    - name: Checkout
-      uses: actions/checkout@v3
     - name: Zip Folder
       run: zip -r ${{ github.event.repository.name }}.v${{ steps.getversion.outputs.version }}.zip .
     - name: Create Release
