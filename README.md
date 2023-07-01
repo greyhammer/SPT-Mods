@@ -18,14 +18,14 @@ After editing and saving, you can just double click that `SPT.bat` file
 The server and launcher will start, after server window says happy playing, then refresh the launcher and it should connect.
 
 Current Mods
-* TheBlacklist version: 1.1.0 by: Platinum
-* NoDiscardLimit version: 1.0.0 by: Skwizzy
-* SPT Realism Mod version: 0.8.72 by: Fontaine
-* Simple Wave AI Generator (SWAG) version: 2.0.0 by: nooky
-* Softcore version: 1.4.0 by: x-ODT
-* SAIN version: 2.0.0 by: z-Solarint
-* DrakiaXYZ-Waypoints version: 1.1.2 by: DrakiaXYZ
-* GamePanelHUD by: kmyuhkyuk
+* [TheBlacklist](https://hub.sp-tarkov.com/files/file/1012-the-blacklist-flea-market-enhancements/?highlight=the%20blacklist) v1.1.0 by: Platinum 
+* [Looting Bots](https://hub.sp-tarkov.com/files/file/1096-looting-bots/) v1.1.0 by: Skwizzy
+* [SPT Realism Mod](https://hub.sp-tarkov.com/files/file/606-spt-realism-mod/) v0.8.72
+* [Simple Wave AI Generator (SWAG)](https://hub.sp-tarkov.com/files/file/878-swag-simple-wave-ai-generator/#tab_dbb2762a38dd640140e33993c19f0e5cd129c780) v2.0.0 by: nooky
+* [Softcore](https://hub.sp-tarkov.com/files/file/998-softcore/?highlight=softcore) v1.4.0 by: x-ODT
+* [SAIN 2.0](https://hub.sp-tarkov.com/files/file/1062-sain-2-0-solarint-s-ai-modifications-full-ai-combat-system-replacement/) Version 2.0 Beta 3.2 for 3.5.8 by: z-Solarint
+* [Waypoints - Expanded Bot Patrols And Navmesh](https://hub.sp-tarkov.com/files/file/1119-waypoints-expanded-bot-patrols-and-navmesh/) v1.1.2 by: DrakiaXYZ
+* [GamePanelHUD](https://hub.sp-tarkov.com/files/file/652-game-panel-hud/) v2.7.1 by: kmyuhkyuk
 
 ### Contributing
 Please create feature branch, and increment VERSION according to https://semver.org/
