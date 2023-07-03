@@ -1,0 +1,8 @@
+{
+    "manifest": [
+         {
+            "key": "assets/content/items/mods/scopes/scope_all_flir_rs32_225_9x_35_60hz.bundle",
+            "dependencyKeys": []
+        }
+    ]
+}

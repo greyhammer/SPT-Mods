@@ -1,5 +1,10 @@
+# 1.0.6
+- Added 2 thermal scope mods by `Borkel`
+  - Realistic REAP-IR
+  - Realistic FLIR
+
 # 1.0.5
-- Adding `GamePanelHUD by kmyuhkyuk`
+- Added `GamePanelHUD` by `kmyuhkyuk`
 
 # 1.0.4
 - Added Install instructions
