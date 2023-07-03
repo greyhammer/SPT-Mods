@@ -26,6 +26,8 @@ Current Mods
 * [SAIN 2.0](https://hub.sp-tarkov.com/files/file/1062-sain-2-0-solarint-s-ai-modifications-full-ai-combat-system-replacement/) Version 2.0 Beta 3.2 for 3.5.8 by: z-Solarint
 * [Waypoints - Expanded Bot Patrols And Navmesh](https://hub.sp-tarkov.com/files/file/1119-waypoints-expanded-bot-patrols-and-navmesh/) v1.1.2 by: DrakiaXYZ
 * [GamePanelHUD](https://hub.sp-tarkov.com/files/file/652-game-panel-hud/) v2.7.1 by: kmyuhkyuk
+* [Realistic Reap-Ir Thermal Scope](https://hub.sp-tarkov.com/files/file/1302-realistic-reap-ir-thermal-scope-60hz-640-320px/) v1.0.0 by: Borkel
+* [Realistic Flir Thermal Scope](https://hub.sp-tarkov.com/files/file/1201-realistic-flir-thermal-scope-60hz-320-240px-and-range/) v1.3 by: Borkel
 
 ### Contributing
 Please create feature branch, and increment VERSION according to https://semver.org/
