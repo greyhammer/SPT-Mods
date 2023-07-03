@@ -1,5 +1,5 @@
 # 1.0.7
-- Added `Visceral Dismemberment` by by `_SSH`
+- Added `Visceral Dismemberment` by by `SSH_`
 
 # 1.0.6
 - Added 2 thermal scope mods by `Borkel`

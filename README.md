@@ -28,6 +28,7 @@ Current Mods
 * [GamePanelHUD](https://hub.sp-tarkov.com/files/file/652-game-panel-hud/) v2.7.1 by: kmyuhkyuk
 * [Realistic Reap-Ir Thermal Scope](https://hub.sp-tarkov.com/files/file/1302-realistic-reap-ir-thermal-scope-60hz-640-320px/) v1.0.0 by: Borkel
 * [Realistic Flir Thermal Scope](https://hub.sp-tarkov.com/files/file/1201-realistic-flir-thermal-scope-60hz-320-240px-and-range/) v1.3 by: Borkel
+* [Visceral Dismemberment](https://hub.sp-tarkov.com/files/file/1092-visceral-dismemberment/#tab_9a55fd25c7cb92ce0fe6aa067b18169b3daa3f7c) v1.1 by: SSH_
 
 ### Contributing
 Please create feature branch, and increment VERSION according to https://semver.org/
