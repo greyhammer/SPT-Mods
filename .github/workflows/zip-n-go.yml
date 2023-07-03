@@ -31,4 +31,4 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       uses: Ilshidur/action-discord@master
       with:
-        args: '{{ EVENT_PAYLOAD.repository.full_name }} - v${{ steps.getversion.outputs.version }} has been built and pushed'
+        args: '{{ EVENT_PAYLOAD.repository.full_name }} - v${{ steps.getversion.outputs.version }} has been built and pushed to https://github.com/greyhammer/SPT-Mods/releases/tag/v${{ steps.getversion.outputs.version }}'
