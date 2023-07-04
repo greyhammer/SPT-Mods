@@ -31,7 +31,7 @@ Current Mods
 * [Visceral Dismemberment](https://hub.sp-tarkov.com/files/file/1092-visceral-dismemberment/#tab_9a55fd25c7cb92ce0fe6aa067b18169b3daa3f7c) v1.1 by: SSH_
 
 ### Contributing
-Please create feature branch, and increment VERSION according to https://semver.org/
-Update CHANGELONG with your changes
-Then create Pull Request from your feature branch to main branch 
-After PR is approved it will trigger CI/CD pipeline and release generation
+Please create feature branch, and increment VERSION according to https://semver.org/  
+Update CHANGELONG with your changes  
+Then create Pull Request from your feature branch to main branch   
+After PR is approved it will trigger CI/CD pipeline and release generation  
