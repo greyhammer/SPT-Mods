@@ -1,3 +1,8 @@
+# 1.0.8
+- Updated mods
+  - SWAG: `v2.0.0` -> `v2.0.1`
+  - SAIN 2.0: `2.0 Beta 3.2 for 3.5.8` -> `2.0 BETA 3.3 FOR 3.5.8`
+
 # 1.0.7
 - Added `Visceral Dismemberment` by by `SSH_`
 
