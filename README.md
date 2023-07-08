@@ -13,9 +13,18 @@ Install:
 5. Profit?? 
 
 Also, We made a script for launching the server and launcher in one click.
-`SPT.bat` - you will need to edit the file and adjust the first 2 lines to point to your Single Player Tarkov folder.
-After editing and saving, you can just double click that `SPT.bat` file
-The server and launcher will start, after server window says happy playing, then refresh the launcher and it should connect.
+`SPT.bat`, which is included in the release zip archive.
+```
+E:
+cd E:\SinglePlayerTarkov
+start "" .\Aki.Server.exe
+start "" .\Aki.Launcher.exe
+exit
+```
+You will need to edit the file and adjust the first 2 lines to point to your Single Player Tarkov folder.  
+In the example above, its in E:\SinglePlayerTarkov  
+After editing and saving, you can just double click that `SPT.bat` file  
+The server and launcher will start, after server window says happy playing, then refresh the launcher and it should connect.  
 
 Current Mods
 * [TheBlacklist](https://hub.sp-tarkov.com/files/file/1012-the-blacklist-flea-market-enhancements/?highlight=the%20blacklist) v1.1.0 by: Platinum 
