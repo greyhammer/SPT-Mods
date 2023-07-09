@@ -1,3 +1,6 @@
+# 1.0.9
+- Added mod `Valens has the Power` by `Valens`
+
 # 1.0.8
 - Updated mods
   - SWAG: `v2.0.0` -> `v2.0.1`
