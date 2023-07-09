@@ -34,8 +34,9 @@ Current Mods
 * [SAIN 2.0](https://hub.sp-tarkov.com/files/file/1062-sain-2-0-solarint-s-ai-modifications-full-ai-combat-system-replacement/) Version 2.0 Beta 3.3 for 3.5.8 by: z-Solarint
 * [Simple Wave AI Generator (SWAG)](https://hub.sp-tarkov.com/files/file/878-swag-simple-wave-ai-generator/#tab_dbb2762a38dd640140e33993c19f0e5cd129c780) v2.0.1 by: nooky
 * [Softcore](https://hub.sp-tarkov.com/files/file/998-softcore/?highlight=softcore) v1.4.0 by: x-ODT
-* [SPT Realism Mod](https://hub.sp-tarkov.com/files/file/606-spt-realism-mod/) v0.8.72
+* [SPT Realism Mod](https://hub.sp-tarkov.com/files/file/606-spt-realism-mod/) v0.8.72 by: Fontaine
 * [TheBlacklist](https://hub.sp-tarkov.com/files/file/1012-the-blacklist-flea-market-enhancements/?highlight=the%20blacklist) v1.1.0 by: Platinum 
+* [Valens Has The Power](https://hub.sp-tarkov.com/files/file/613-valens-has-the-power/#overview) v1.2.1 by: Valens
 * [Visceral Dismemberment](https://hub.sp-tarkov.com/files/file/1092-visceral-dismemberment/#tab_9a55fd25c7cb92ce0fe6aa067b18169b3daa3f7c) v1.1 by: SSH_
 * [Waypoints - Expanded Bot Patrols And Navmesh](https://hub.sp-tarkov.com/files/file/1119-waypoints-expanded-bot-patrols-and-navmesh/) v1.1.2 by: DrakiaXYZ
 

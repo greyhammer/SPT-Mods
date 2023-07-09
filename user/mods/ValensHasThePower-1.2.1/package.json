@@ -1,0 +1,9 @@
+{
+  "name": "Valens Has The Power",
+  "author": "Valens",
+  "version": "1.2.1",
+  "license": "CC BY-NC-SA 4.0",
+  "main": "src/mod.js",
+  "akiVersion": "3.2.*",
+  "thanks to": "CWX, Clodan/Alex"
+}
