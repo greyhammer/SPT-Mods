@@ -18,6 +18,7 @@ Also, We made a script for launching the server and launcher in one click.
 E:
 cd E:\SinglePlayerTarkov
 start "" .\Aki.Server.exe
+timeout 15
 start "" .\Aki.Launcher.exe
 exit
 ```

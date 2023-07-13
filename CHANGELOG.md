@@ -1,3 +1,6 @@
+# 1.0.10
+- Batch script now waits 15 seconds between starting the server and the launcher
+
 # 1.0.9
 - Added mod `Valens has the Power` by `Valens`
 
