@@ -1,3 +1,8 @@
+# 1.1.0
+- Added mods
+  - framework `Custom Interactions` by `IcyClawz`
+  - mod `Item Context Menu Extended` by `IcyClawz`
+
 # 1.0.10
 - Batch script now waits 15 seconds between starting the server and the launcher
 
@@ -14,8 +19,8 @@
 
 # 1.0.6
 - Added 2 thermal scope mods by `Borkel`
-  - Realistic REAP-IR
-  - Realistic FLIR
+  - `Realistic REAP-IR`
+  - `Realistic FLIR`
 
 # 1.0.5
 - Added `GamePanelHUD` by `kmyuhkyuk`

@@ -18,5 +18,5 @@ UnityPlayer.dll
 winhttp.dll
 BepInEx/cache/*
 BepInEx/core/*
-BepInEx/patchers/*
+BepInEx/patchers/aki_PrePatch.dll
 BepInEx/LogOutput.log
