@@ -28,18 +28,20 @@ After editing and saving, you can just double click that `SPT.bat` file
 The server and launcher will start, after server window says happy playing, then refresh the launcher and it should connect.  
 
 Current Mods
-* [GamePanelHUD](https://hub.sp-tarkov.com/files/file/652-game-panel-hud/) v2.7.1 by: kmyuhkyuk
-* [Looting Bots](https://hub.sp-tarkov.com/files/file/1096-looting-bots/) v1.1.0 by: Skwizzy
-* [Realistic Flir Thermal Scope](https://hub.sp-tarkov.com/files/file/1201-realistic-flir-thermal-scope-60hz-320-240px-and-range/) v1.3 by: Borkel
-* [Realistic Reap-Ir Thermal Scope](https://hub.sp-tarkov.com/files/file/1302-realistic-reap-ir-thermal-scope-60hz-640-320px/) v1.0.0 by: Borkel
-* [SAIN 2.0](https://hub.sp-tarkov.com/files/file/1062-sain-2-0-solarint-s-ai-modifications-full-ai-combat-system-replacement/) Version 2.0 Beta 3.3 for 3.5.8 by: z-Solarint
-* [Simple Wave AI Generator (SWAG)](https://hub.sp-tarkov.com/files/file/878-swag-simple-wave-ai-generator/#tab_dbb2762a38dd640140e33993c19f0e5cd129c780) v2.0.1 by: nooky
-* [Softcore](https://hub.sp-tarkov.com/files/file/998-softcore/?highlight=softcore) v1.4.0 by: x-ODT
-* [SPT Realism Mod](https://hub.sp-tarkov.com/files/file/606-spt-realism-mod/) v0.8.72 by: Fontaine
-* [TheBlacklist](https://hub.sp-tarkov.com/files/file/1012-the-blacklist-flea-market-enhancements/?highlight=the%20blacklist) v1.1.0 by: Platinum 
-* [Valens Has The Power](https://hub.sp-tarkov.com/files/file/613-valens-has-the-power/#overview) v1.2.1 by: Valens
-* [Visceral Dismemberment](https://hub.sp-tarkov.com/files/file/1092-visceral-dismemberment/#tab_9a55fd25c7cb92ce0fe6aa067b18169b3daa3f7c) v1.1 by: SSH_
-* [Waypoints - Expanded Bot Patrols And Navmesh](https://hub.sp-tarkov.com/files/file/1119-waypoints-expanded-bot-patrols-and-navmesh/) v1.1.2 by: DrakiaXYZ
+* [Custom Interactions](https://hub.sp-tarkov.com/files/file/1278-custom-interactions) v1.1.1
+* [GamePanelHUD](https://hub.sp-tarkov.com/files/file/652-game-panel-hud/) v2.7.1
+* [Item Context Menu Extended](https://hub.sp-tarkov.com/files/file/1283-item-context-menu-extended) v1.0.1
+* [Looting Bots](https://hub.sp-tarkov.com/files/file/1096-looting-bots/) v1.1.0
+* [Realistic Flir Thermal Scope](https://hub.sp-tarkov.com/files/file/1201-realistic-flir-thermal-scope-60hz-320-240px-and-range/) v1.3
+* [Realistic Reap-Ir Thermal Scope](https://hub.sp-tarkov.com/files/file/1302-realistic-reap-ir-thermal-scope-60hz-640-320px/) v1.0.0
+* [SAIN 2.0](https://hub.sp-tarkov.com/files/file/1062-sain-2-0-solarint-s-ai-modifications-full-ai-combat-system-replacement/) Version 2.0 Beta 3.3 for 3.5.8
+* [Simple Wave AI Generator (SWAG)](https://hub.sp-tarkov.com/files/file/878-swag-simple-wave-ai-generator/#tab_dbb2762a38dd640140e33993c19f0e5cd129c780) v2.0.1
+* [Softcore](https://hub.sp-tarkov.com/files/file/998-softcore/?highlight=softcore) v1.4.0
+* [SPT Realism Mod](https://hub.sp-tarkov.com/files/file/606-spt-realism-mod/) v0.8.72
+* [TheBlacklist](https://hub.sp-tarkov.com/files/file/1012-the-blacklist-flea-market-enhancements/?highlight=the%20blacklist) v1.1.0
+* [Valens Has The Power](https://hub.sp-tarkov.com/files/file/613-valens-has-the-power/#overview) v1.2.1
+* [Visceral Dismemberment](https://hub.sp-tarkov.com/files/file/1092-visceral-dismemberment/#tab_9a55fd25c7cb92ce0fe6aa067b18169b3daa3f7c) v1.1
+* [Waypoints - Expanded Bot Patrols And Navmesh](https://hub.sp-tarkov.com/files/file/1119-waypoints-expanded-bot-patrols-and-navmesh/) v1.1.2
 
 ### Contributing
 Please create feature branch, and increment VERSION according to https://semver.org/  
