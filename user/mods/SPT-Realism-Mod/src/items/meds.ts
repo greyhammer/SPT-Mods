@@ -23,6 +23,9 @@ export class Meds {
 
 
             ///Custom///
+            if (serverItem._id === "SJ0") {
+                serverItem._props.StimulatorBuffs = this.medItems.SJ0.StimulatorBuffs;
+            }
             if (serverItem._id === "SUPERBOTMEDKIT") {
                 serverItem._props.ConflictingItems.splice(0, 0, "SPTRM");
                 serverItem._props.ConflictingItems.splice(1, 0, "medkit");
@@ -61,10 +64,16 @@ export class Meds {
                 serverItem._props.effects_health = this.medItems.analgin.effects_health;
                 serverItem._props.medUseTime = this.medItems.analgin.medUseTime;
                 serverItem._props.ConflictingItems.splice(0, 0, "SPTRM");
-                serverItem._props.ConflictingItems.splice(1, 0, "pills");
-                serverItem._props.ConflictingItems.splice(2, 0, "none");
-                serverItem._props.ConflictingItems.splice(3, 0, "1");
-                serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(1, 0, "pillspain"); // med type
+                serverItem._props.ConflictingItems.splice(2, 0, "none"); // heavy bleed heal type
+                serverItem._props.ConflictingItems.splice(3, 0, "0"); // trqnt damage per tick
+                serverItem._props.ConflictingItems.splice(4, 0, "true"); //can be used in raid
+                serverItem._props.ConflictingItems.splice(5, 0, "600"); // full duration
+                serverItem._props.ConflictingItems.splice(6, 0, "30"); // wait period
+                serverItem._props.ConflictingItems.splice(7, 0, "120"); // effect period
+                serverItem._props.ConflictingItems.splice(8, 0, "0.6"); // tunnel vision strength
+                serverItem._props.ConflictingItems.splice(9, 0, "25"); // delay
+                serverItem._props.ConflictingItems.splice(10, 0, "8"); // strength
             }
             //Ibuprofen
             if (serverItem._id === "5af0548586f7743a532b7e99") {
@@ -75,10 +84,16 @@ export class Meds {
                 serverItem._props.effects_health = this.medItems.ibuprofen.effects_health;
                 serverItem._props.medUseTime = this.medItems.ibuprofen.medUseTime;
                 serverItem._props.ConflictingItems.splice(0, 0, "SPTRM");
-                serverItem._props.ConflictingItems.splice(1, 0, "pills");
+                serverItem._props.ConflictingItems.splice(1, 0, "pillspain");
                 serverItem._props.ConflictingItems.splice(2, 0, "none");
-                serverItem._props.ConflictingItems.splice(3, 0, "1");
+                serverItem._props.ConflictingItems.splice(3, 0, "0");
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "300"); // full duration
+                serverItem._props.ConflictingItems.splice(6, 0, "30"); // wait period
+                serverItem._props.ConflictingItems.splice(7, 0, "70"); // effect period
+                serverItem._props.ConflictingItems.splice(8, 0, "0.5"); // tunnel vision strength
+                serverItem._props.ConflictingItems.splice(9, 0, "40"); // delay
+                serverItem._props.ConflictingItems.splice(10, 0, "4"); // strength
             }
             //Morphine
             if (serverItem._id === "544fb3f34bdc2d03748b456a") {
@@ -89,10 +104,16 @@ export class Meds {
                 serverItem._props.effects_health = this.medItems.morphine.effects_health;
                 serverItem._props.medUseTime = this.medItems.morphine.medUseTime;
                 serverItem._props.ConflictingItems.splice(0, 0, "SPTRM");
-                serverItem._props.ConflictingItems.splice(1, 0, "drug");
+                serverItem._props.ConflictingItems.splice(1, 0, "drugpain");
                 serverItem._props.ConflictingItems.splice(2, 0, "none");
-                serverItem._props.ConflictingItems.splice(3, 0, "1");
+                serverItem._props.ConflictingItems.splice(3, 0, "0");
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "900"); // full duration
+                serverItem._props.ConflictingItems.splice(6, 0, "30"); // wait period
+                serverItem._props.ConflictingItems.splice(7, 0, "270"); // effect period
+                serverItem._props.ConflictingItems.splice(8, 0, "0.75"); // tunnel vision strength
+                serverItem._props.ConflictingItems.splice(9, 0, "15"); // delay
+                serverItem._props.ConflictingItems.splice(10, 0, "14"); // strength
             }
             ///Medicines///
             //Augmentin
@@ -106,8 +127,12 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(0, 0, "SPTRM");
                 serverItem._props.ConflictingItems.splice(1, 0, "pills");
                 serverItem._props.ConflictingItems.splice(2, 0, "none");
-                serverItem._props.ConflictingItems.splice(3, 0, "1");
+                serverItem._props.ConflictingItems.splice(3, 0, "0");
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "none");
+                serverItem._props.ConflictingItems.splice(6, 0, "none"); 
+                serverItem._props.ConflictingItems.splice(7, 0, "none"); 
+                serverItem._props.ConflictingItems.splice(8, 0, "none"); 
             }
             ///Bandages///
             //Aeseptic Bandage
@@ -119,8 +144,12 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(0, 0, "SPTRM");
                 serverItem._props.ConflictingItems.splice(1, 0, "bndg");
                 serverItem._props.ConflictingItems.splice(2, 0, "none");
-                serverItem._props.ConflictingItems.splice(3, 0, "1");
+                serverItem._props.ConflictingItems.splice(3, 0, "0");
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             //Army Bandage
             if (serverItem._id === "5751a25924597722c463c472") {
@@ -131,8 +160,12 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(0, 0, "SPTRM");
                 serverItem._props.ConflictingItems.splice(1, 0, "bndg");
                 serverItem._props.ConflictingItems.splice(2, 0, "none");
-                serverItem._props.ConflictingItems.splice(3, 0, "1");
+                serverItem._props.ConflictingItems.splice(3, 0, "0");
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             ///Tourniquets///
             //CAT
@@ -146,6 +179,10 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(2, 0, "trnqt");
                 serverItem._props.ConflictingItems.splice(3, 0, "0.6"); // trqnt damage per tick
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             //Esmarch
             if (serverItem._id === "5e831507ea0a7c419c2f9bd9") {
@@ -158,6 +195,10 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(2, 0, "trnqt");
                 serverItem._props.ConflictingItems.splice(3, 0, "0.8"); // trqnt damage per tick
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             //Calok
             if (serverItem._id === "5e8488fa988a8701445df1e4") {
@@ -170,6 +211,10 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(2, 0, "clot"); // heavy bleed heal type
                 serverItem._props.ConflictingItems.splice(3, 0, "0"); // trqnt damage per tick
                 serverItem._props.ConflictingItems.splice(4, 0, "true");//can be used in raid
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             ///Splints///
             //Immobilizing Splint
@@ -182,8 +227,12 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(0, 0, "SPTRM");
                 serverItem._props.ConflictingItems.splice(1, 0, "splint");
                 serverItem._props.ConflictingItems.splice(2, 0, "none");
-                serverItem._props.ConflictingItems.splice(3, 0, "1");
+                serverItem._props.ConflictingItems.splice(3, 0, "0");
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             //Alu Splint
             if (serverItem._id === "5af0454c86f7746bf20992e8") {
@@ -195,12 +244,17 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(0, 0, "SPTRM");
                 serverItem._props.ConflictingItems.splice(1, 0, "splint");
                 serverItem._props.ConflictingItems.splice(2, 0, "none");
-                serverItem._props.ConflictingItems.splice(3, 0, "1");
+                serverItem._props.ConflictingItems.splice(3, 0, "0");
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             ///Medkits///
             //AI-2
             if (serverItem._id === "5755356824597772cb798962") {
+                serverItem._parent = "5448f3a14bdc2d27728b4569";
                 serverItem._props.MaxHpResource = this.medItems["AI-2"].MaxHpResource;
                 serverItem._props.StimulatorBuffs = this.medItems["AI-2"].StimulatorBuffs;
                 serverItem._props.effects_damage = this.medItems["AI-2"].effects_damage;
@@ -208,13 +262,20 @@ export class Meds {
                 serverItem._props.medUseTime = this.medItems["AI-2"].medUseTime;
                 serverItem._props.hpResourceRate = 0;
                 serverItem._props.ConflictingItems.splice(0, 0, "SPTRM");
-                serverItem._props.ConflictingItems.splice(1, 0, "drug");
+                serverItem._props.ConflictingItems.splice(1, 0, "drugpain");
                 serverItem._props.ConflictingItems.splice(2, 0, "none");
-                serverItem._props.ConflictingItems.splice(3, 0, "1");
+                serverItem._props.ConflictingItems.splice(3, 0, "0");
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "300"); // full duration
+                serverItem._props.ConflictingItems.splice(6, 0, "15"); // wait period
+                serverItem._props.ConflictingItems.splice(7, 0, "135"); // effect period
+                serverItem._props.ConflictingItems.splice(8, 0, "0.7"); // tunnel vision strength
+                serverItem._props.ConflictingItems.splice(9, 0, "10"); // delay
+                serverItem._props.ConflictingItems.splice(10, 0, "10"); // strength
             }
             //CAR
             if (serverItem._id === "590c661e86f7741e566b646a") {
+                serverItem._parent = "5448f3ac4bdc2dce718b4569";
                 serverItem._props.MaxHpResource = this.medItems.CAR.MaxHpResource;
                 serverItem._props.effects_damage = this.medItems.CAR.effects_damage;
                 serverItem._props.effects_health = this.medItems.CAR.effects_health;
@@ -225,9 +286,14 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(2, 0, "none");
                 serverItem._props.ConflictingItems.splice(3, 0, "1");
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             //Salewa
             if (serverItem._id === "544fb45d4bdc2dee738b4568") {
+                serverItem._parent = "5448f3ac4bdc2dce718b4569";
                 serverItem._props.MaxHpResource = this.medItems.salewa.MaxHpResource;
                 serverItem._props.effects_damage = this.medItems.salewa.effects_damage;
                 serverItem._props.effects_health = this.medItems.salewa.effects_health;
@@ -238,9 +304,14 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(2, 0, "combo");
                 serverItem._props.ConflictingItems.splice(3, 0, "0.8"); // trqnt damage per tick
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             //IFAK
             if (serverItem._id === "590c678286f77426c9660122") {
+                serverItem._parent = "5448f3ac4bdc2dce718b4569";
                 serverItem._props.MaxHpResource = this.medItems.IFAK.MaxHpResource;
                 serverItem._props.effects_damage = this.medItems.IFAK.effects_damage;
                 serverItem._props.effects_health = this.medItems.IFAK.effects_health;
@@ -251,9 +322,14 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(2, 0, "combo");
                 serverItem._props.ConflictingItems.splice(3, 0, "0.6"); // trqnt damage per tick
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             //AFAK
             if (serverItem._id === "60098ad7c2240c0fe85c570a") {
+                serverItem._parent = "5448f3ac4bdc2dce718b4569";
                 serverItem._props.MaxHpResource = this.medItems.AFAK.MaxHpResource;
                 serverItem._props.effects_damage = this.medItems.AFAK.effects_damage;
                 serverItem._props.effects_health = this.medItems.AFAK.effects_health;
@@ -264,9 +340,14 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(2, 0, "clot");
                 serverItem._props.ConflictingItems.splice(3, 0, "0"); // trqnt damage per tick
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             //Grizzly
             if (serverItem._id === "590c657e86f77412b013051d") {
+                serverItem._parent = "5448f3ac4bdc2dce718b4569";
                 serverItem._props.MaxHpResource = this.medItems.grizzly.MaxHpResource;
                 serverItem._props.effects_damage = this.medItems.grizzly.effects_damage;
                 serverItem._props.effects_health = this.medItems.grizzly.effects_health;
@@ -277,6 +358,10 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(2, 0, "combo");
                 serverItem._props.ConflictingItems.splice(3, 0, "0.6"); // trqnt damage per tick
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             ///Smeary stuff///
             //Vaseline
@@ -290,8 +375,12 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(0, 0, "SPTRM");
                 serverItem._props.ConflictingItems.splice(1, 0, "vas");
                 serverItem._props.ConflictingItems.splice(2, 0, "none");
-                serverItem._props.ConflictingItems.splice(3, 0, "1");
+                serverItem._props.ConflictingItems.splice(3, 0, "0");
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             //GoldenStar
             if (serverItem._id === "5751a89d24597722aa0e8db0") {
@@ -304,8 +393,12 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(0, 0, "SPTRM");
                 serverItem._props.ConflictingItems.splice(1, 0, "drug");
                 serverItem._props.ConflictingItems.splice(2, 0, "none");
-                serverItem._props.ConflictingItems.splice(3, 0, "1");
+                serverItem._props.ConflictingItems.splice(3, 0, "0");
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             ///Surgery/
             //CMS
@@ -319,6 +412,10 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(2, 0, "surg");
                 serverItem._props.ConflictingItems.splice(3, 0, "0.85"); // hp restore per tick
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
             //Surv12
             if (serverItem._id === "5d02797c86f774203f38e30a") {
@@ -331,6 +428,10 @@ export class Meds {
                 serverItem._props.ConflictingItems.splice(2, 0, "surg");
                 serverItem._props.ConflictingItems.splice(3, 0, "0.95"); // hp restore per tick
                 serverItem._props.ConflictingItems.splice(4, 0, "true");
+                serverItem._props.ConflictingItems.splice(5, 0, "");
+                serverItem._props.ConflictingItems.splice(6, 0, ""); 
+                serverItem._props.ConflictingItems.splice(7, 0, ""); 
+                serverItem._props.ConflictingItems.splice(8, 0, ""); 
             }
         }
         if (this.modConf.logEverything == true) {

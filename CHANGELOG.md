@@ -1,3 +1,10 @@
+# 2.0.0
+- Replaced existing mods with versions that support SPT-AKI v3.6.x
+- Added mods
+  - `Amands's Graphics` by `Amands2Mello`
+  - `Never Lose Equipments` by `Revingly`
+  - `EFT-API` by `kmyuhkyuk`
+
 # 1.1.0
 - Added mods
   - framework `Custom Interactions` by `IcyClawz`

@@ -47,11 +47,9 @@ const maps_1 = require("./bots/maps");
 const gear_1 = require("./items/gear");
 const seasonalevents_1 = require("./misc/seasonalevents");
 const item_cloning_1 = require("./items/item_cloning");
-const _path = __importStar(require("path"));
+const path = __importStar(require("path"));
 const description_gen_1 = require("./json/description_gen");
 const json_handler_1 = require("./json/json-handler");
-const ammo_old_1 = require("./ballistics/ammo_old");
-const armor_old_1 = require("./ballistics/armor_old");
 const fs = require('fs');
 const custFleaBlacklist = require("../db/traders/ragfair/blacklist.json");
 const medItems = require("../db/items/med_items.json");
@@ -98,7 +96,7 @@ class Main {
         const ragFairCallback = new traders_1.RagCallback(httpResponse, jsonUtil, ragfairServer, ragfairController, configServer);
         const traderRefersh = new traders_1.TraderRefresh(logger, jsonUtil, mathUtil, timeUtil, databaseServer, profileHelper, assortHelper, paymentHelper, ragfairAssortGenerator, ragfairOfferGenerator, traderAssortService, localisationService, traderPurchasePefrsisterService, traderHelper, fenceService, configServer);
         const airdropController = new airdrops_1.AirdropLootgen(jsonUtil, hashUtil, weightedRandomHelper, logger, locationGenerator, localisationService, lootGenerator, databaseServer, timeUtil, configServer);
-        const botGen = new bot_gen_1.BotGen(logger, hashUtil, randomUtil, timeUtil, jsonUtil, profileHelper, databaseServer, botInventoryGenerator, botLevelGenerator, botEquipmentFilterService, weightedRandomHelper, botHelper, botDifficultyHelper, seasonalEventService, configServer);
+        const botGen = new bot_gen_1.BotGen(logger, hashUtil, randomUtil, timeUtil, jsonUtil, profileHelper, databaseServer, botInventoryGenerator, botLevelGenerator, botEquipmentFilterService, weightedRandomHelper, botHelper, botDifficultyHelper, seasonalEventService, localisationService, configServer);
         const flea = new fleamarket_1.FleamarketConfig(logger, fleaConf, modConfig, custFleaBlacklist);
         flea.loadFleaConfig();
         const router = container.resolve("DynamicRouterModService");
@@ -152,6 +150,7 @@ class Main {
                     const utils = new utils_1.Utils(postLoadTables, arrays);
                     const tieredFlea = new fleamarket_1.TieredFlea(postLoadTables);
                     const player = new player_1.Player(logger, postLoadTables, modConfig, custProfile, medItems, utils);
+                    const maps = new maps_1.Spawns(logger, postLoadTables, modConfig);
                     const randomizeTraderAssort = new traders_1.RandomizeTraderAssort();
                     const pmcData = profileHelper.getPmcProfile(sessionID);
                     const scavData = profileHelper.getScavProfile(sessionID);
@@ -204,7 +203,7 @@ class Main {
                             tieredFlea.updateFlea(logger, ragfairOfferGenerator, container, arrays, level);
                         }
                         if (modConfig.boss_spawns == true) {
-                            this.setBossSpawnChance(postLoadTables.locations, level);
+                            maps.setBossSpawnChance(postLoadTables.locations, level);
                         }
                         if (modConfig.logEverything == true) {
                             logger.info("Realism Mod: Profile Checked");
@@ -310,8 +309,8 @@ class Main {
                         }
                         utils_1.RaidInfoTracker.TOD = getTOD(realTime);
                         utils_1.RaidInfoTracker.mapType = mapType;
-                        if (modConfig.bot_changes) {
-                            this.updateBots(pmcData, logger, modConfig, bots, utils);
+                        if (modConfig.bot_changes == true) {
+                            bots.updateBots(pmcData, logger, modConfig, bots, utils);
                             if (utils_1.EventTracker.isChristmas == true) {
                                 logger.warning("====== Giving Bots Christmas Presents, Don't Be A Scrooge! ======");
                                 seasonalEvents.giveBotsChristmasPresents();
@@ -382,14 +381,14 @@ class Main {
         var index = 0;
         if (index == 0) {
             index = 1;
-            var modPath = _path.join(__dirname, '..');
+            var modPath = path.join(__dirname, '..');
             var profileFolderPath = modPath + "/ProfileBackups/";
             var profileFilePath = modPath + "/ProfileBackups/" + profileData.info.id;
             if (fs.existsSync(profileFilePath)) {
                 this.profileBackupHelper(profileFileData, profileFilePath, profileData, logger);
             }
             else {
-                fs.mkdir(_path.join(profileFolderPath, profileData.info.id), (err) => {
+                fs.mkdir(path.join(profileFolderPath, profileData.info.id), (err) => {
                     if (err) {
                         return console.error("Realism Mod: Error Backing Up Profile; " + err);
                     }
@@ -423,7 +422,7 @@ class Main {
         const logger = container.resolve("WinstonLogger");
         const databaseServer = container.resolve("DatabaseServer");
         const tables = databaseServer.getTables();
-        const jsonHand = new json_handler_1.JsonHandler(tables);
+        const jsonHand = new json_handler_1.JsonHandler(tables, logger);
         jsonHand.pushWeaponsToServer();
         jsonHand.pushModsToServer();
     }
@@ -441,8 +440,6 @@ class Main {
         const utils = new utils_1.Utils(tables, arrays);
         const ammo = new ammo_1.Ammo(logger, tables, modConfig);
         const armor = new armor_1.Armor(logger, tables, modConfig);
-        const oldAmmo = new ammo_old_1.OldAmmo(logger, tables, modConfig);
-        const oldArmor = new armor_old_1.OldArmor(logger, tables, modConfig);
         const attachBase = new attatchment_base_1.AttatchmentBase(logger, tables, arrays, modConfig, utils);
         const bots = new bots_1.BotLoader(logger, tables, configServer, modConfig, arrays, utils);
         const items = new items_1._Items(logger, tables, modConfig, inventoryConf);
@@ -459,7 +456,17 @@ class Main {
         const gear = new gear_1.Gear(arrays, tables);
         const itemCloning = new item_cloning_1.ItemCloning(logger, tables, modConfig, jsonUtil, medItems, crafts);
         const descGen = new description_gen_1.DescriptionGen(tables);
-        const jsonHand = new json_handler_1.JsonHandler(tables);
+        const jsonHand = new json_handler_1.JsonHandler(tables, logger);
+        const preAkiModLoader = container.resolve("PreAkiModLoader");
+        const activeMods = preAkiModLoader.getImportedModDetails();
+        for (const modname in activeMods) {
+            if (modname.includes("Jiro-BatterySystem")) {
+                utils_1.ModTracker.batteryModPresent = true;
+            }
+            if (modname.includes("Solarint-SAIN-ServerMod")) {
+                utils_1.ModTracker.sainPresent = true;
+            }
+        }
         this.dllChecker(logger, modConfig);
         if (modConfig.recoil_attachment_overhaul == true) {
             itemCloning.createCustomWeapons();
@@ -469,18 +476,16 @@ class Main {
         // codegen.weapTemplatesCodeGen();
         // codegen.gearTemplatesCodeGen();
         // codegen.ammoTemplatesCodeGen();
-        if (modConfig.realistic_ballistics == true && modConfig.old_ballistics == false) {
+        if (modConfig.realistic_ballistics == true) {
             ammo.loadAmmoStats();
             armor.loadArmor();
             bots.setBotHealth();
         }
         jsonHand.pushModsToServer();
         jsonHand.pushWeaponsToServer();
-        jsonHand.pushArmorToServer();
+        jsonHand.pushGearToServer();
         descGen.descriptionGen();
-        if (modConfig.armor_mouse_penalty == true) {
-            armor.armorMousePenalty();
-        }
+        armor.armorMousePenalty();
         if (modConfig.headgear_conflicts == true) {
             gear.loadGearConflicts();
         }
@@ -497,6 +502,9 @@ class Main {
         if (modConfig.increased_bot_cap == true) {
             bots.increaseBotCap();
         }
+        else if (modConfig.spawn_waves == true) {
+            bots.increasePerformance();
+        }
         if (modConfig.bot_names == true) {
             bots.botNames();
         }
@@ -509,11 +517,6 @@ class Main {
             // bots.botMeds();
             meds.loadMeds();
         }
-        if (modConfig.old_ballistics == true && modConfig.realistic_ballistics == false) {
-            oldAmmo.loadAmmoStatsOld();
-            oldArmor.loadArmorOld();
-            bots.setBotHealth();
-        }
         bots.botHpMulti();
         custFleaConf.loadFleaConfig();
         flea.loadFleaGlobal();
@@ -524,13 +527,15 @@ class Main {
         if (modConfig.trader_repair_changes == true) {
             traders.loadTraderRepairs();
         }
-        if (modConfig.recoil_attachment_overhaul && utils_1.ConfigChecker.dllIsPresent == true) {
-            ammo.loadAmmoFirerateChanges();
-            quests.fixMechancicQuests();
-            ammo.grenadeTweaks();
-        }
-        if (modConfig.headset_changes) {
-            gear.loadHeadsetTweaks();
+        if (utils_1.ConfigChecker.dllIsPresent == true) {
+            if (modConfig.recoil_attachment_overhaul) {
+                ammo.loadAmmoFirerateChanges();
+                quests.fixMechancicQuests();
+                ammo.grenadeTweaks();
+            }
+            if (modConfig.headset_changes) {
+                gear.loadHeadsetTweaks();
+            }
         }
         if (modConfig.remove_quest_fir_req == true) {
             quests.removeFIRQuestRequire();
@@ -560,7 +565,7 @@ class Main {
         this.modLoader = container.resolve("PreAkiModLoader");
     }
     dllChecker(logger, modConfig) {
-        const realismdll = _path.join(__dirname, '../../../../BepInEx/plugins/RealismMod.dll');
+        const realismdll = path.join(__dirname, '../../../../BepInEx/plugins/RealismMod.dll');
         if (fs.existsSync(realismdll)) {
             utils_1.ConfigChecker.dllIsPresent = true;
             if (modConfig.recoil_attachment_overhaul == false) {
@@ -597,215 +602,6 @@ class Main {
         }
         if (modConfig.logEverything == true) {
             logger.info("Realism Mod: Profile Checked");
-        }
-    }
-    setBossSpawnChance(mapDB, level) {
-        if (level >= 0 && level < 5) {
-            this.bossSpawnHelper(mapDB, 0.05);
-        }
-        if (level >= 5 && level < 10) {
-            this.bossSpawnHelper(mapDB, 0.1);
-        }
-        if (level >= 10 && level < 15) {
-            this.bossSpawnHelper(mapDB, 0.2);
-        }
-        if (level >= 15 && level < 20) {
-            this.bossSpawnHelper(mapDB, 0.4);
-        }
-        if (level >= 20 && level < 25) {
-            this.bossSpawnHelper(mapDB, 0.5);
-        }
-        if (level >= 25 && level < 30) {
-            this.bossSpawnHelper(mapDB, 0.7);
-        }
-        if (level >= 30 && level < 35) {
-            this.bossSpawnHelper(mapDB, 0.9);
-        }
-        if (level >= 35 && level < 40) {
-            this.bossSpawnHelper(mapDB, 1);
-        }
-        if (level >= 40 && level < 45) {
-            this.bossSpawnHelper(mapDB, 1.05);
-        }
-        if (level >= 45 && level < 50) {
-            this.bossSpawnHelper(mapDB, 1.1);
-        }
-        if (level > 50) {
-            this.bossSpawnHelper(mapDB, 1.2);
-        }
-    }
-    bossSpawnHelper(mapDB, chanceMulti) {
-        for (let i in mapDB) {
-            if (i !== "lighthouse" && i !== "laboratory" && mapDB[i].base?.BossLocationSpawn !== undefined) {
-                for (let k in mapDB[i].base.BossLocationSpawn) {
-                    let chance = mapDB[i].base.BossLocationSpawn[k].BossChance;
-                    if (mapDB[i].base.BossLocationSpawn[k]?.TriggerId !== undefined && mapDB[i].base.BossLocationSpawn[k]?.TriggerId !== "") {
-                        chance = Math.round(mapDB[i].base.BossLocationSpawn[k].BossChance * chanceMulti * 2);
-                        mapDB[i].base.BossLocationSpawn[k].BossChance = Math.max(10, Math.min(chance, 100));
-                    }
-                    else {
-                        chance = Math.round(mapDB[i].base.BossLocationSpawn[k].BossChance * chanceMulti);
-                        mapDB[i].base.BossLocationSpawn[k].BossChance = Math.max(1, Math.min(chance, 100));
-                    }
-                }
-            }
-        }
-    }
-    getBotTier(pmcData, bots, helper) {
-        this.setBotTier(pmcData, "scav", bots, helper);
-        this.setBotTier(pmcData, "raider", bots, helper);
-        this.setBotTier(pmcData, "rogue", bots, helper);
-        this.setBotTier(pmcData, "goons", bots, helper);
-        this.setBotTier(pmcData, "killa", bots, helper);
-        this.setBotTier(pmcData, "tagilla", bots, helper);
-        this.setBotTier(pmcData, "sanitar", bots, helper);
-    }
-    setBotTier(pmcData, type, bots, utils) {
-        var tier = 1;
-        var tierArray = [1, 2, 3, 4];
-        if (pmcData.Info.Level >= 0 && pmcData.Info.Level < 5) {
-            tier = utils.probabilityWeighter(tierArray, [100, 0, 0]);
-        }
-        if (pmcData.Info.Level >= 5 && pmcData.Info.Level < 10) {
-            tier = utils.probabilityWeighter(tierArray, [80, 20, 0]);
-        }
-        if (pmcData.Info.Level >= 10 && pmcData.Info.Level < 15) {
-            tier = utils.probabilityWeighter(tierArray, [70, 20, 10]);
-        }
-        if (pmcData.Info.Level >= 15 && pmcData.Info.Level < 20) {
-            tier = utils.probabilityWeighter(tierArray, [50, 40, 10]);
-        }
-        if (pmcData.Info.Level >= 20 && pmcData.Info.Level < 25) {
-            tier = utils.probabilityWeighter(tierArray, [40, 40, 20]);
-        }
-        if (pmcData.Info.Level >= 25 && pmcData.Info.Level < 30) {
-            tier = utils.probabilityWeighter(tierArray, [30, 40, 30]);
-        }
-        if (pmcData.Info.Level >= 30 && pmcData.Info.Level < 35) {
-            tier = utils.probabilityWeighter(tierArray, [20, 30, 50]);
-        }
-        if (pmcData.Info.Level >= 35) {
-            tier = utils.probabilityWeighter(tierArray, [10, 30, 60]);
-        }
-        if (type === "sanitar") {
-            if (tier == 1) {
-                bots.sanitarLoad1();
-            }
-            if (tier == 2) {
-                bots.sanitarLoad3();
-            }
-            if (tier == 3) {
-                bots.sanitarLoad3();
-            }
-        }
-        if (type === "tagilla") {
-            if (tier == 1) {
-                bots.tagillaLoad1();
-            }
-            if (tier == 2) {
-                bots.tagillaLoad2();
-            }
-            if (tier == 3) {
-                bots.tagillaLoad3();
-            }
-        }
-        if (type === "killa") {
-            if (tier == 1) {
-                bots.killaLoad1();
-            }
-            if (tier == 2) {
-                bots.killaLoad2();
-            }
-            if (tier == 3) {
-                bots.killaLoad3();
-            }
-        }
-        if (type === "goons") {
-            if (tier == 1) {
-                bots.goonsLoad1();
-            }
-            if (tier == 2) {
-                bots.goonsLoad2();
-            }
-            if (tier == 3) {
-                bots.goonsLoad3();
-            }
-        }
-        if (type === "raider") {
-            if (tier == 1) {
-                bots.raiderLoad1();
-            }
-            if (tier == 2) {
-                bots.raiderLoad2();
-            }
-            if (tier == 3) {
-                bots.raiderLoad3();
-            }
-        }
-        if (type === "rogue") {
-            if (tier == 1) {
-                bots.rogueLoad1();
-            }
-            if (tier == 2) {
-                bots.rogueLoad2();
-            }
-            if (tier == 3) {
-                bots.rogueLoad3();
-            }
-        }
-        if (type === "scav") {
-            if (tier == 1) {
-                bots.scavLoad1();
-            }
-            if (tier == 2) {
-                bots.scavLoad2();
-            }
-            if (tier == 3) {
-                bots.scavLoad3();
-            }
-        }
-    }
-    updateBots(pmcData, logger, config, bots, helper) {
-        var property = pmcData?.Info?.Level;
-        if (property === undefined) {
-            bots.botConfig1();
-            bots.scavLoad1();
-            bots.rogueLoad1();
-            bots.raiderLoad1();
-            bots.goonsLoad1();
-            bots.killaLoad1();
-            bots.tagillaLoad1();
-            if (modConfig.force_boss_items == true) {
-                bots.forceBossItems();
-            }
-            logger.info("Realism Mod: Bots Have Been Set To Default (Tier 1)");
-            if (config.logEverything == true) {
-                logger.info("Realism Mod: Bots Have Been Reconfigured");
-            }
-        }
-        if (property !== undefined) {
-            if (config.bot_testing == true) {
-                bots.botTest(config.bot_test_tier);
-                logger.warning("Realism Mod: Bots Are In Test Mode");
-            }
-            if (config.bot_testing == false) {
-                if (pmcData.Info.Level >= 0 && pmcData.Info.Level < 15) {
-                    bots.botConfig1();
-                }
-                if (pmcData.Info.Level >= 16 && pmcData.Info.Level < 25) {
-                    bots.botConfig2();
-                }
-                if (pmcData.Info.Level >= 26) {
-                    bots.botConfig3();
-                }
-                this.getBotTier(pmcData, bots, helper);
-                if (config.logEverything == true) {
-                    logger.info("Realism Mod: Bot Tiers Have Been Set");
-                }
-            }
-            if (modConfig.force_boss_items == true) {
-                bots.forceBossItems();
-            }
         }
     }
 }

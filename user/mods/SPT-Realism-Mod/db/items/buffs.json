@@ -1,10 +1,201 @@
 {
+    "Buffs_SJ0": [
+        {
+            "AbsoluteValue": true,
+            "BuffType": "HealthRate",
+            "Chance": 1,
+            "Delay": 1,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 4
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "Contusion",
+            "Chance": 1,
+            "Delay": 1,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 1
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "Pain",
+            "Chance": 1,
+            "Delay": 1,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 0
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "HandsTremor",
+            "Chance": 1,
+            "Delay": 1,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 0
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "QuantumTunnelling",
+            "Chance": 1,
+            "Delay": 1,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 0
+        },
+        {
+            "AbsoluteValue": true,
+            "BuffType": "HealthRate",
+            "Chance": 0.75,
+            "Delay": 45,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 4
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "Contusion",
+            "Chance": 0.75,
+            "Delay": 45,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 1
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "Pain",
+            "Chance": 0.75,
+            "Delay": 45,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 0
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "HandsTremor",
+            "Chance": 0.75,
+            "Delay": 45,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 0
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "QuantumTunnelling",
+            "Chance": 0.75,
+            "Delay": 45,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 0
+        },
+        {
+            "AbsoluteValue": true,
+            "BuffType": "HealthRate",
+            "Chance": 0.5,
+            "Delay": 90,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 4
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "Contusion",
+            "Chance": 0.5,
+            "Delay": 90,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 1
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "Pain",
+            "Chance": 0.5,
+            "Delay": 90,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 0
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "HandsTremor",
+            "Chance": 0.5,
+            "Delay": 90,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 0
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "QuantumTunnelling",
+            "Chance": 0.5,
+            "Delay": 90,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 0
+        },
+        {
+            "AbsoluteValue": true,
+            "BuffType": "HealthRate",
+            "Chance": 0.25,
+            "Delay": 165,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 4
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "Contusion",
+            "Chance": 0.25,
+            "Delay": 165,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 1
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "Pain",
+            "Chance": 0.25,
+            "Delay": 165,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 0
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "HandsTremor",
+            "Chance": 0.25,
+            "Delay": 165,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 0
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "QuantumTunnelling",
+            "Chance": 0.25,
+            "Delay": 165,
+            "Duration": 15,
+            "SkillName": "",
+            "Value": 0
+        },
+        {
+            "AbsoluteValue": false,
+            "BuffType": "DamageModifier",
+            "Chance": 0.95,
+            "Delay": 1,
+            "Duration": 200,
+            "SkillName": "",
+            "Value": 1
+          }
+    ],
     "Buffs_analgin": [
         {
             "BuffType": "MaxStamina",
             "Chance": 1,
-            "Delay": 60,
-            "Duration": 300,
+            "Delay": 25,
+            "Duration": 600,
             "Value": -5,
             "AbsoluteValue": true,
             "SkillName": ""
@@ -12,8 +203,8 @@
         {
             "BuffType": "StaminaRate",
             "Chance": 1,
-            "Delay": 60,
-            "Duration": 300,
+            "Delay": 25,
+            "Duration": 600,
             "Value": -0.02,
             "AbsoluteValue": true,
             "SkillName": ""
@@ -21,8 +212,8 @@
         {
             "BuffType": "HydrationRate",
             "Chance": 1,
-            "Delay": 60,
-            "Duration": 300,
+            "Delay": 25,
+            "Duration": 600,
             "Value": -0.02,
             "AbsoluteValue": true,
             "SkillName": ""
@@ -30,8 +221,8 @@
         {
             "BuffType": "EnergyRate",
             "Chance": 1,
-            "Delay": 60,
-            "Duration": 300,
+            "Delay": 25,
+            "Duration": 600,
             "Value": -0.02,
             "AbsoluteValue": true,
             "SkillName": ""
@@ -41,8 +232,8 @@
         {
             "BuffType": "MaxStamina",
             "Chance": 1,
-            "Delay": 45,
-            "Duration": 220,
+            "Delay": 40,
+            "Duration": 300,
             "Value": -4,
             "AbsoluteValue": true,
             "SkillName": ""
@@ -51,7 +242,7 @@
             "BuffType": "StaminaRate",
             "Chance": 1,
             "Delay": 45,
-            "Duration": 220,
+            "Duration": 300,
             "Value": -0.015,
             "AbsoluteValue": true,
             "SkillName": ""
@@ -59,8 +250,8 @@
         {
             "BuffType": "HydrationRate",
             "Chance": 1,
-            "Delay": 45,
-            "Duration": 220,
+            "Delay": 40,
+            "Duration": 300,
             "Value": -0.025,
             "AbsoluteValue": true,
             "SkillName": ""
@@ -68,8 +259,8 @@
         {
             "BuffType": "EnergyRate",
             "Chance": 1,
-            "Delay": 45,
-            "Duration": 220,
+            "Delay": 40,
+            "Duration": 300,
             "Value": -0.015,
             "AbsoluteValue": true,
             "SkillName": ""
@@ -79,7 +270,7 @@
         {
             "BuffType": "MaxStamina",
             "Chance": 1,
-            "Delay": 10,
+            "Delay": 15,
             "Duration": 780,
             "Value": -10,
             "AbsoluteValue": true,
@@ -88,7 +279,7 @@
         {
             "BuffType": "StaminaRate",
             "Chance": 1,
-            "Delay": 10,
+            "Delay": 15,
             "Duration": 780,
             "Value": -0.03,
             "AbsoluteValue": true,
@@ -97,7 +288,7 @@
         {
             "BuffType": "SkillRate",
             "Chance": 1,
-            "Delay": 10,
+            "Delay": 15,
             "Duration": 780,
             "Value": -20,
             "AbsoluteValue": true,
@@ -106,7 +297,7 @@
         {
             "BuffType": "SkillRate",
             "Chance": 1,
-            "Delay": 10,
+            "Delay": 15,
             "Duration": 780,
             "Value": -20,
             "AbsoluteValue": true,
@@ -115,7 +306,7 @@
         {
             "BuffType": "SkillRate",
             "Chance": 1,
-            "Delay": 10,
+            "Delay": 15,
             "Duration": 780,
             "Value": -25,
             "AbsoluteValue": true,
@@ -124,7 +315,7 @@
         {
             "BuffType": "SkillRate",
             "Chance": 1,
-            "Delay": 10,
+            "Delay": 15,
             "Duration": 780,
             "Value": -25,
             "AbsoluteValue": true,
@@ -133,7 +324,7 @@
         {
             "BuffType": "SkillRate",
             "Chance": 1,
-            "Delay": 10,
+            "Delay": 15,
             "Duration": 780,
             "Value": -25,
             "AbsoluteValue": true,
@@ -142,7 +333,7 @@
         {
             "BuffType": "SkillRate",
             "Chance": 1,
-            "Delay": 10,
+            "Delay": 15,
             "Duration": 780,
             "Value": -35,
             "AbsoluteValue": true,
@@ -151,7 +342,7 @@
         {
             "BuffType": "SkillRate",
             "Chance": 1,
-            "Delay": 10,
+            "Delay": 15,
             "Duration": 780,
             "Value": -35,
             "AbsoluteValue": true,
@@ -160,7 +351,7 @@
         {
             "BuffType": "SkillRate",
             "Chance": 1,
-            "Delay": 10,
+            "Delay": 15,
             "Duration": 780,
             "Value": -35,
             "AbsoluteValue": true,
@@ -169,7 +360,7 @@
         {
             "BuffType": "HydrationRate",
             "Chance": 1,
-            "Delay": 10,
+            "Delay": 15,
             "Duration": 780,
             "Value": -0.03,
             "AbsoluteValue": true,
@@ -178,7 +369,7 @@
         {
             "BuffType": "EnergyRate",
             "Chance": 1,
-            "Delay": 10,
+            "Delay": 15,
             "Duration": 780,
             "Value": -0.025,
             "AbsoluteValue": true,

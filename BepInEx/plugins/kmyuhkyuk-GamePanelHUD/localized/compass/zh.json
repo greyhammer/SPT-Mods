@@ -45,7 +45,7 @@
     "Compass Fire Height": "罗盘开火高度",
     "Compass Static Height": "罗盘静态高度",
     "Compass Fire Max Distance": "罗盘开火最大距离",
-    "Fire distance <= How many meters display": "",
+    "Fire distance <= How many meters display": "开火距离小于或等于多少米显示",
     "Compass Static Center Point Range": "罗盘静态中心点范围",
     "Auto Size Delta Rate": "自动高度比率",
     "Screen percentage": "屏幕比率",

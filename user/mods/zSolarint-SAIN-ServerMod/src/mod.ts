@@ -31,43 +31,25 @@ class SAIN implements IPostDBLoadMod {
             // Loop through each map
             for (const map of maps) {
                 const brain = botConfig.pmc.pmcType[pmcType][map];
-                brain.bossKilla = 0;
-                brain.bossKnight = 0;
-                brain.bossGluhar = 0;
-                brain.bossSanitar = 0;
-                brain.bossTagilla = 0;
-                brain.bossZryachiy = 0;
-                brain.followerGluharAssault = 0;
-                brain.followerBully = 0;
-                brain.followerBigPipe = 0;
-                brain.followerSanitar = 0;
-                brain.assault = 0;
-                brain.cursedAssault = 0;
-                brain.exUsec = 0;
-                brain.pmcBot = 1;
+
+                for (const prop in brain) {
+                    if (prop === 'pmcBot') {
+                        brain[prop] = 1;  // Set pmcBot property to 1
+                    } else {
+                        brain[prop] = 0;  // Set all other properties to 0
+                    }
+                }
             }
         }
-        
-        const locationSettings = {
-            woods: tables.locations.woods.base.BotLocationModifier,
-            customs: tables.locations.bigmap.base.BotLocationModifier,
-            reserve: tables.locations.rezervbase.base.BotLocationModifier,
-            shoreline: tables.locations.shoreline.base.BotLocationModifier,
-            streets: tables.locations.tarkovstreets.base.BotLocationModifier,
-            lighthouse: tables.locations.lighthouse.base.BotLocationModifier,
-            factoryday: tables.locations.factory4_day.base.BotLocationModifier,
-            factorynight: tables.locations.factory4_night.base.BotLocationModifier,
-            labs: tables.locations.laboratory.base.BotLocationModifier,
-            interchange: tables.locations.interchange.base.BotLocationModifier
-        };
 
-        for (const location in locationSettings) {
-            if (locationSettings.hasOwnProperty(location)) {
-                const settings = locationSettings[location];
-                settings.AccuracySpeed = 1;
-                settings.GainSight = 1;
-                settings.Scattering = 1;
-                settings.VisibleDistance = 1;
+        for (const locationName in tables.locations) {
+            const location = tables.locations[locationName].base;
+
+            if (location && location.BotLocationModifier) {
+                location.BotLocationModifier.AccuracySpeed = 1;
+                location.BotLocationModifier.GainSight = 1;
+                location.BotLocationModifier.Scattering = 1;
+                location.BotLocationModifier.VisibleDistance = 1;
             }
         }
     }

@@ -85,7 +85,7 @@ export class BotLooGen extends BotLootGenerator {
 
         const myGetLootCache = new MyLootCache(this.logger, jsonUtil, this.itemHelper, this.databaseServer, pmcLootGenerator, this.localisationService, ragfairPriceService);
 
-        const nValue = this.getBotLootNValue(isPmc);
+        const nValue =  this.getBotLootNValueByRole(botRole);
         const looseLootMin = itemCounts.looseLoot.min;
         const looseLootMax = itemCounts.looseLoot.max;
 

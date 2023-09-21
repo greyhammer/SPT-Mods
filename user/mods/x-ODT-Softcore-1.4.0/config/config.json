@@ -96,7 +96,7 @@
 			},
 			"Enable_Marked_Keys": {
 				"_description": "Marked keys are available on flea market.",
-				"enabled": false,
+				"enabled": true,
 				"PriceMultiplier": 2
 			}
 		},
@@ -127,7 +127,7 @@
 			},
 			"Unban_Bitcoins_For_Barters": {
 				"_description": "Allow Bitcoins to be used for barters.",
-				"enabled": false
+				"enabled": true
 			}
 		},
 		"Disable_Selling_on_Flea": {
@@ -144,7 +144,7 @@
 		},
 		"Flea_Pristine_Items": {
 			"_description": "Only pristine condition items are offered on flea.",
-			"enabled": false
+			"enabled": true
 		},
 		"Only_Found_In_Raid_Items_Allowed_For_Barters": {
 			"_description": "Be a man, don't change this. This is borderline cheating option for infinite money because of variance changes.",

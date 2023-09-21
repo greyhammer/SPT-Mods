@@ -18,7 +18,7 @@
     "Hydration": "Hydration",
     "When Hydration < 10%, Current Color change to Warning": "When Hydration < 10%, Current Color change to Warning",
     "Energy": "Energy",
-    "When Energy < 10%, Current Color change to Red Warning": "When Energy < 10%, Current Color change to Red Warning",
+    "When Energy < 10%, Current Color change to Red Warning": "When Energy < 10%, Current Color change to Warning",
     "Buff Animation Speed": "Buff Animation Speed",
     "Maximum": "Maximum",
     "Zeros": "Zeros",

@@ -1,4 +1,41 @@
 {
+    "presetBatch": {
+        "assault": 50,
+        "bossBully": 5,
+        "bossGluhar": 5,
+        "bossKilla": 5,
+        "bossKojaniy": 5,
+        "bossSanitar": 5,
+        "bossTagilla": 5,
+        "bossKnight": 5,
+        "bossZryachiy": 5,
+        "bossTest": 5,
+        "cursedAssault": 10,
+        "followerBully": 10,
+        "followerGluharAssault": 10,
+        "followerGluharScout": 10,
+        "followerGluharSecurity": 10,
+        "followerGluharSnipe": 10,
+        "followerKojaniy": 10,
+        "followerSanitar": 5,
+        "followerTagilla": 5,
+        "followerBirdEye": 5,
+        "followerBigPipe": 5,
+        "followerZryachiy": 10,
+        "followerTest": 10,
+        "marksman": 10,
+        "pmcBot": 30,
+        "sectantPriest": 5,
+        "sectantWarrior": 10,
+        "gifter": 5,
+        "test": 5,
+        "exUsec": 30,
+        "arenaFighterEvent": 10,
+        "arenaFighter": 10,
+        "sptUsec": 50,
+        "sptBear": 50,
+        "crazyAssaultEvent": 10
+    },
     "cartridgeBlacklist": [],
     "blacklist": [
         "5fca13ca637ee0341a484f46",
@@ -6,7 +43,7 @@
         "59f32bb586f774757e1e8442",
         "6087e570b998180e9f76dc24"
     ],
-    "maxBotCap": {
+    "maxBotCapHigh": {
         "factory4_day": 15,
         "factory4_night": 15,
         "bigmap": 30,
@@ -19,17 +56,57 @@
         "tarkovstreets": 30,
         "default": 25
     },
-    "lootNValue1": {
-        "scav": 3.2,
-        "pmc": 3.15
+    "maxBotCapLow": {
+        "factory4_day": 12,
+        "factory4_night": 12,
+        "bigmap": 18,
+        "woods": 18,
+        "shoreline": 18,
+        "lighthouse": 14,
+        "rezervbase": 16,
+        "interchange": 16,
+        "laboratory": 16,
+        "tarkovstreets": 16,
+        "default": 15
     },
-    "lootNValue2": {
-        "scav": 3.3,
-        "pmc": 2.5
-    },
-    "lootNValue3": {
-        "scav": 3.5,
-        "pmc": 2.4
+    "lootNValue": {
+        "scav": 3,
+        "pmc": 2.5,
+        "assault": 3,
+        "marksman": 3,
+        "arenafighterevent": 2.5,
+        "arenafighter": 2.5,
+        "crazyassaultevent": 3,
+        "bossbully": 2,
+        "sptbear": 2.5,
+        "sptusec": 2.5,
+        "bossgluhar": 2,
+        "bosskilla": 2,
+        "bossknight": 2,
+        "bosskojaniy": 2,
+        "bosssanitar": 2,
+        "bosstagilla": 2,
+        "bosstest": 2,
+        "bosszryachiy": 2,
+        "cursedassault": 2,
+        "exusec": 2,
+        "followerbigpipe": 2,
+        "followerbirdeye": 2,
+        "followerbully": 2,
+        "followergluharassault": 2,
+        "followergluharscout": 2,
+        "followergluharsecurity": 2,
+        "followergluharsnipe": 2,
+        "followerkojaniy": 2,
+        "followersanitar": 2,
+        "followertagilla": 2,
+        "followertest": 2,
+        "followerzryachiy": 2,
+        "gifter": 2,
+        "pmcbot": 2,
+        "sectantpriest": 2,
+        "sectantwarrior": 2,
+        "test": 2
     },
     "durability1": {
         "default": {
@@ -566,7 +643,7 @@
         "chanceSameSideIsHostilePercent": 95,
         "convertIntoPmcChance": {
             "assault": {
-                "min": 20,
+                "min": 30,
                 "max": 45
             },
             "cursedassault": {
@@ -580,6 +657,18 @@
             "exusec": {
                 "min": 0,
                 "max": 0
+            },
+            "arenafighter": {
+                "min": 0,
+                "max": 0
+            },
+            "arenafighterevent": {
+                "min": 0,
+                "max": 0
+            },
+            "crazyassaultevent": {
+                "min": 5,
+                "max": 30
             }
         }
     },
@@ -602,7 +691,7 @@
         "chanceSameSideIsHostilePercent": 99,
         "convertIntoPmcChance": {
             "assault": {
-                "min": 17,
+                "min": 27,
                 "max": 45
             },
             "cursedassault": {
@@ -616,6 +705,18 @@
             "exusec": {
                 "min": 0,
                 "max": 0
+            },
+            "arenafighter": {
+                "min": 0,
+                "max": 0
+            },
+            "arenafighterevent": {
+                "min": 0,
+                "max": 0
+            },
+            "crazyassaultevent": {
+                "min": 5,
+                "max": 30
             }
         }
     },
@@ -638,7 +739,7 @@
         "chanceSameSideIsHostilePercent": 100,
         "convertIntoPmcChance": {
             "assault": {
-                "min": 15,
+                "min": 25,
                 "max": 45
             },
             "cursedassault": {
@@ -652,6 +753,18 @@
             "exusec": {
                 "min": 0,
                 "max": 0
+            },
+            "arenafighter": {
+                "min": 0,
+                "max": 0
+            },
+            "arenafighterevent": {
+                "min": 0,
+                "max": 0
+            },
+            "crazyassaultevent": {
+                "min": 5,
+                "max": 30
             }
         }
     },
@@ -672,6 +785,18 @@
             "exusec": {
                 "min": 100,
                 "max": 100
+            },
+            "arenafighter": {
+                "min": 100,
+                "max": 100
+            },
+            "arenafighterevent": {
+                "min": 100,
+                "max": 100
+            },
+            "crazyassaultevent": {
+                "min": 100,
+                "max": 100
             }
         }
     },
@@ -690,6 +815,18 @@
                 "max": 0
             },
             "exusec": {
+                "min": 0,
+                "max": 0
+            },
+            "arenafighter": {
+                "min": 0,
+                "max": 0
+            },
+            "arenafighterevent": {
+                "min": 0,
+                "max": 0
+            },
+            "crazyassaultevent": {
                 "min": 0,
                 "max": 0
             }

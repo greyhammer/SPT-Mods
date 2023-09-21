@@ -65,17 +65,19 @@ class Traders {
         this.tables.traders[mechId].base.sell_category = sellCatMech.sell_category;
         // this.tables.traders['5ac3b934156ae10c4430e83c'].base.sell_category = sellCatRag;
         // this.tables.traders['5c0647fdd443bc2504c2d371'].base.sell_category = sellCatJaeg;
-        this.traderConf.fence.discountOptions.assortSize = 10;
-        this.traderConf.fence.discountOptions.presetPriceMult = 2.2;
-        this.traderConf.fence.discountOptions.itemPriceMult = 1.8;
-        this.traderConf.fence.maxPresetsPercent = 4;
-        this.traderConf.fence.partialRefreshChangePercent = 50;
-        this.traderConf.fence.discountOptions.assortSize = 10;
-        this.traderConf.fence.assortSize = 30;
-        this.traderConf.fence.itemPriceMult = 2;
-        this.traderConf.fence.presetPriceMult = 2.5;
-        this.traderConf.fence.itemTypeLimits = fenceLimits.itemTypeLimits;
-        this.traderConf.fence.blacklist = fenceLimits.blacklist;
+        if (modConfig.nerf_fence == true) {
+            this.traderConf.fence.discountOptions.assortSize = 10;
+            this.traderConf.fence.discountOptions.presetPriceMult = 2.2;
+            this.traderConf.fence.discountOptions.itemPriceMult = 1.8;
+            this.traderConf.fence.maxPresetsPercent = 4;
+            this.traderConf.fence.partialRefreshChangePercent = 50;
+            this.traderConf.fence.discountOptions.assortSize = 10;
+            this.traderConf.fence.assortSize = 30;
+            this.traderConf.fence.itemPriceMult = 2;
+            this.traderConf.fence.presetPriceMult = 2.5;
+            this.traderConf.fence.itemTypeLimits = fenceLimits.itemTypeLimits;
+            this.traderConf.fence.blacklist = fenceLimits.blacklist;
+        }
         this.tables.globals.config.Health.HealPrice.HealthPointPrice = 100;
         this.tables.globals.config.Health.HealPrice.EnergyPointPrice = 30;
         this.tables.globals.config.Health.HealPrice.HydrationPointPrice = 30;
@@ -140,11 +142,13 @@ class Traders {
         }
     }
     addItemsToAssorts() {
-        //therapist//
         if (this.modConf.med_changes == true) {
-            this.assortItemPusher(theraId, "TIER1MEDKIT", 1, "5449016a4bdc2d6f028b456f", 1, false, 25000);
+            //therapist//
+            this.assortItemPusher(theraId, "TIER1MEDKIT", 2, "5449016a4bdc2d6f028b456f", 1, false, 25000);
             this.assortItemPusher(theraId, "TIER2MEDKIT", 1, "5449016a4bdc2d6f028b456f", 3, false, 50000);
             this.assortItemPusher(theraId, "TIER3MEDKIT", 1, "5449016a4bdc2d6f028b456f", 4, false, 75000);
+            //Skier//
+            this.assortItemPusher(skierId, "SJ0", 2, "5449016a4bdc2d6f028b456f", 1, false, 25000);
         }
         //ragman//
         this.assortNestedItemPusher(ragmId, "5ac8d6885acfc400180ae7b0", { "5a16b7e1fcdbcb00165aa6c9": "mod_equipment_000" }, 1, "5449016a4bdc2d6f028b456f", 3, true, undefined, 1.25);
@@ -378,41 +382,49 @@ class RandomizeTraderAssort {
     }
     randomizeAmmoStock(assortItemParent, item) {
         if (assortItemParent === enums_1.ParentClasses.AMMO) {
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._9x18mm, 60 * modConfig.rand_stackable_modifier, 150 * modConfig.rand_stackable_modifier, 2);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._9x19mm, 50 * modConfig.rand_stackable_modifier, 130 * modConfig.rand_stackable_modifier, 3);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._9x21mm, 30 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier, 4, true, 60);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._9x39mm, 30 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier, 4, true, 55);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._45ACP, 50 * modConfig.rand_stackable_modifier, 130 * modConfig.rand_stackable_modifier, 3);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._357mag, 25 * modConfig.rand_stackable_modifier, 50 * modConfig.rand_stackable_modifier, 4);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._46x30mm, 40 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier, 4, true, 50);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._57x28mm, 40 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier, 4, true, 50);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._762x25mm, 60 * modConfig.rand_stackable_modifier, 140 * modConfig.rand_stackable_modifier, 2);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._366TKM, 60 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier, 3);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._762x39mm, 50 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier, 4, true, 55);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._762x51mm, 30 * modConfig.rand_stackable_modifier, 80 * modConfig.rand_stackable_modifier, 4, true, 65);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._762x54rmm, 40 * modConfig.rand_stackable_modifier, 80 * modConfig.rand_stackable_modifier, 4, true, 69);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._300BLK, 30 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier, 4, true, 53);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._556x45mm, 40 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier, 4, true, 60);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._545x39mm, 50 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier, 4, true, 60);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._127x108mm, 10 * modConfig.rand_stackable_modifier, 40 * modConfig.rand_stackable_modifier, 4);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._127x55mm, 20 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier, 4);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._12ga, 25 * modConfig.rand_stackable_modifier, 40 * modConfig.rand_stackable_modifier, 3);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._20ga, 40 * modConfig.rand_stackable_modifier, 80 * modConfig.rand_stackable_modifier, 2);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._23x75mm, 4 * modConfig.rand_stackable_modifier, 12 * modConfig.rand_stackable_modifier, 4);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._26x75mm, 1 * modConfig.rand_stackable_modifier, 2 * modConfig.rand_stackable_modifier, 4);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._40x46mm, 1 * modConfig.rand_stackable_modifier, 3 * modConfig.rand_stackable_modifier, 4);
+            this.randomizeAmmoStockHelper(item, enums_1.Calibers._40x53mm, 1 * modConfig.rand_stackable_modifier, 3 * modConfig.rand_stackable_modifier, 4);
+        }
+    }
+    randomizeAmmoStockHelper(item, caliber, min, max, outOfStockChance, usePenFactor = false, penThreshold = 50) {
+        if (this.itemDB[item._tpl]._props.Caliber === caliber) {
+            let oddsModifier = 0;
+            let stockModifier = 1;
+            if (usePenFactor == true) {
+                if (this.itemDB[item._tpl]._props.PenetrationPower <= penThreshold) {
+                    oddsModifier = 2;
+                }
+                stockModifier = penThreshold / this.itemDB[item._tpl]._props.PenetrationPower;
+            }
             let randNum = this.utils.pickRandNumOneInTen();
-            if (randNum <= 4) {
+            if (randNum <= (outOfStockChance - oddsModifier)) {
                 item.upd.StackObjectsCount = 0;
             }
             else {
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._9x18mm, 40 * modConfig.rand_stackable_modifier, 150 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._9x19mm, 30 * modConfig.rand_stackable_modifier, 130 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._9x21mm, 30 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._9x39mm, 20 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._45ACP, 30 * modConfig.rand_stackable_modifier, 130 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._357mag, 12 * modConfig.rand_stackable_modifier, 50 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._46x30mm, 30 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._57x28mm, 30 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._762x25mm, 30 * modConfig.rand_stackable_modifier, 140 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._366TKM, 30 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._762x39mm, 20 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._762x51mm, 15 * modConfig.rand_stackable_modifier, 80 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._762x54rmm, 15 * modConfig.rand_stackable_modifier, 80 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._300BLK, 30 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._556x45mm, 20 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._545x39mm, 20 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._127x108mm, 5 * modConfig.rand_stackable_modifier, 40 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._127x55mm, 20 * modConfig.rand_stackable_modifier, 120 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._12ga, 15 * modConfig.rand_stackable_modifier, 40 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._20ga, 20 * modConfig.rand_stackable_modifier, 80 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._23x75mm, 5 * modConfig.rand_stackable_modifier, 12 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._26x75mm, 1 * modConfig.rand_stackable_modifier, 2 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._40x46mm, 1 * modConfig.rand_stackable_modifier, 3 * modConfig.rand_stackable_modifier);
-                this.randomizeAmmoStockHelper(item, enums_1.Calibers._40x53mm, 1 * modConfig.rand_stackable_modifier, 3 * modConfig.rand_stackable_modifier);
+                item.upd.StackObjectsCount = Math.round(this.utils.pickRandNumInRange(min, max * stockModifier));
             }
-        }
-    }
-    randomizeAmmoStockHelper(item, caliber, min, max) {
-        if (this.itemDB[item._tpl]._props.Caliber === caliber) {
-            item.upd.StackObjectsCount = this.utils.pickRandNumInRange(min, max);
         }
     }
     randomizeStock(assortItemParent, catParent, item, min, max) {

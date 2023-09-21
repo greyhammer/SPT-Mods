@@ -26,7 +26,7 @@ var MyLootCacheType;
     MyLootCacheType["BAG_HEALING_ITEMS"] = "BagHealingItems";
     MyLootCacheType["BAG_DRUG_ITEMS"] = "BagDrugItems";
     MyLootCacheType["BAG_STIM_ITEMS"] = "BagStimItems";
-})(MyLootCacheType = exports.MyLootCacheType || (exports.MyLootCacheType = {}));
+})(MyLootCacheType || (exports.MyLootCacheType = MyLootCacheType = {}));
 var EquipmentSlots;
 (function (EquipmentSlots) {
     EquipmentSlots["HEADWEAR"] = "Headwear";
@@ -43,7 +43,7 @@ var EquipmentSlots;
     EquipmentSlots["SECOND_PRIMARY_WEAPON"] = "SecondPrimaryWeapon";
     EquipmentSlots["HOLSTER"] = "Holster";
     EquipmentSlots["SCABBARD"] = "Scabbard";
-})(EquipmentSlots = exports.EquipmentSlots || (exports.EquipmentSlots = {}));
+})(EquipmentSlots || (exports.EquipmentSlots = EquipmentSlots = {}));
 class BotLooGen extends BotLootGenerator_1.BotLootGenerator {
     genLoot(sessionId, botJsonTemplate, isPmc, botRole, botInventory, botLevel) {
         const jsonUtil = tsyringe_1.container.resolve("JsonUtil");
@@ -51,7 +51,7 @@ class BotLooGen extends BotLootGenerator_1.BotLootGenerator {
         const ragfairPriceService = tsyringe_1.container.resolve("RagfairPriceService");
         const itemCounts = botJsonTemplate.generation.items;
         const myGetLootCache = new MyLootCache(this.logger, jsonUtil, this.itemHelper, this.databaseServer, pmcLootGenerator, this.localisationService, ragfairPriceService);
-        const nValue = this.getBotLootNValue(isPmc);
+        const nValue = this.getBotLootNValueByRole(botRole);
         const looseLootMin = itemCounts.looseLoot.min;
         const looseLootMax = itemCounts.looseLoot.max;
         var healingTally = 0;

@@ -18,7 +18,7 @@ export class Armor {
         this.armMat.Aramid.Destructibility = 0.24;
 
         this.armMat.Ceramic.Destructibility = 0.18;
-        
+
         this.armMat.Combined.Destructibility = 0.16;
 
         this.armMat.UHMWPE.Destructibility = 0.13;
@@ -73,14 +73,14 @@ export class Armor {
             //// Class 5////
             //6B2 Flora
             if (serverItem._id === "5df8a2ca86f7740bfe6df777") {
-                serverItem._props.Durability = 130;
+                serverItem._props.Durability = 85;
                 serverItem._props.MaxDurability = serverItem._props.Durability;
                 serverItem._props.armorClass = 5;
                 serverItem._props.speedPenaltyPercent = -5;
                 serverItem._props.mousePenalty = 0;
                 serverItem._props.weaponErgonomicPenalty = -5;
                 serverItem._props.BluntThroughput = 0.35;
-                serverItem._props.ArmorMaterial = 'Aramid';
+                serverItem._props.ArmorMaterial = 'Titan';
                 serverItem._props.Weight = 5.4;
             }
             //Kirasa
@@ -517,7 +517,7 @@ export class Armor {
                 serverItem._props.Weight = 8.4;
             }
             //// Class 8 ////  
-            //MK4A Assault
+            //Osprey MK4A Assault
             if (serverItem._id === "60a3c70cde5f453f634816a3") {
                 serverItem._props.Durability = 105;
                 serverItem._props.MaxDurability = serverItem._props.Durability;
@@ -529,7 +529,7 @@ export class Armor {
                 serverItem._props.ArmorMaterial = 'Combined';
                 serverItem._props.Weight = 10;
             }
-            //MK4A Protection
+            //Osprey MK4A Protection
             if (serverItem._id === "60a3c68c37ea821725773ef5") {
                 serverItem._props.Durability = 100;
                 serverItem._props.MaxDurability = serverItem._props.Durability;
@@ -785,7 +785,7 @@ export class Armor {
                 serverItem._props.armorClass = 1;
                 serverItem._props.speedPenaltyPercent = -0.225;
                 serverItem._props.mousePenalty = 0;
-                serverItem._props.weaponErgonomicPenalty = -0.225;;
+                serverItem._props.weaponErgonomicPenalty = -0.225;
                 serverItem._props.BluntThroughput = 0.22;
                 serverItem._props.DeafStrength = "None";
                 serverItem._props.ArmorMaterial = 'UHMWPE';
@@ -925,7 +925,7 @@ export class Armor {
                 serverItem._props.armorClass = 4;
                 serverItem._props.speedPenaltyPercent = -0.75;
                 serverItem._props.mousePenalty = 0;
-                serverItem._props.weaponErgonomicPenalty = -0.75
+                serverItem._props.weaponErgonomicPenalty = -0.75;
                 serverItem._props.BluntThroughput = 0.07;
                 serverItem._props.DeafStrength = "Low";
                 serverItem._props.ArmorMaterial = 'Combined';
@@ -1433,7 +1433,7 @@ export class Armor {
                 serverItem._props.armorClass = 4;
                 serverItem._props.speedPenaltyPercent = -0.6;
                 serverItem._props.mousePenalty = 0;
-                serverItem._props.weaponErgonomicPenalty = -0.6;;
+                serverItem._props.weaponErgonomicPenalty = -0.6;
                 serverItem._props.BluntThroughput = 0;
                 serverItem._props.DeafStrength = "High";
                 serverItem._props.ArmorMaterial = 'Combined';
@@ -1722,13 +1722,15 @@ export class Armor {
     public armorMousePenalty() {
         for (let i in this.itemDB) {
             let serverItem = this.itemDB[i];
-            if ((serverItem._parent === ParentClasses.ARMORVEST || serverItem._parent === ParentClasses.CHESTRIG || serverItem._parent === ParentClasses.HEADWEAR || serverItem._parent === ParentClasses.FACECOVER || serverItem._parent === ParentClasses.ARMOREDEQUIPMENT) && serverItem._props?.speedPenaltyPercent != null) {
-                if (this.modConf.armor_mouse_penalty == true) {
-                    serverItem._props.mousePenalty = -serverItem._props.Weight;
-                }
-                else {
-                    serverItem._props.mousePenalty = 0;
-                }
+            if ((serverItem._parent === ParentClasses.ARMORVEST || serverItem._parent === ParentClasses.HEADWEAR
+                || serverItem._parent === ParentClasses.FACECOVER || serverItem._parent === ParentClasses.ARMOREDEQUIPMENT
+                || serverItem._parent === ParentClasses.BACKPACK || serverItem._parent === ParentClasses.CHESTRIG)
+                && serverItem._props?.speedPenaltyPercent != null) {
+                serverItem._props.mousePenalty = 0;
+            }
+            if (serverItem._parent === ParentClasses.BACKPACK) {
+                serverItem._props.speedPenaltyPercent = 0;
+                serverItem._props.weaponErgonomicPenalty = 0;
             }
         }
         if (this.modConf.logEverything == true) {
