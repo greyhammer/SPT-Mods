@@ -1,7 +1,8 @@
 # SPT-Mods
 
 
-This is the current running master copy of OZR mods for Single Player Tarkov, designed to be used with SPT-AKI 3.6.1
+This is the current running master copy of OZR mods for Single Player Tarkov. 
+This mod pack is designed to be used with [SPT-AKI](https://www.sp-tarkov.com/) 3.6.1
 
 To use these mods, you must already have Single Player Tarkov installed and updated to the latest version.
 
@@ -48,7 +49,7 @@ Current Mods
 * [Waypoints - Expanded Bot Patrols And Navmesh](https://hub.sp-tarkov.com/files/file/1119-waypoints-expanded-bot-patrols-and-navmesh/) v1.2.0
 
 ### Contributing
-Please create feature branch, and increment VERSION according to https://semver.org/  
-Update CHANGELONG with your changes  
-Then create Pull Request from your feature branch to main branch   
-After PR is approved it will trigger CI/CD pipeline and release generation  
+Please create feature branch, and increment VERSION according to https://semver.org/
+Update CHANGELOG with your changes.
+Then create Pull Request from your feature branch to main branch.
+After PR is approved it will trigger CI/CD pipeline and create a new release.
