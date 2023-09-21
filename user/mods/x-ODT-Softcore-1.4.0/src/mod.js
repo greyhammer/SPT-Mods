@@ -104,7 +104,7 @@ class Mod {
                         tables.templates.profiles[profile].usec.character.Inventory.items.find((x) => x.slotId == "SecuredContainer")._tpl = "5732ee6a24597719ae0c0281";
                     }
                     // Beta container from PK "removal"
-                    peacekeeper.assort.barter_scheme["63d385c6b3eba6c95d0efa0a"][0].forEach((x) => (x.count = 10));
+                    peacekeeper.assort.barter_scheme["64806254470acaccd803b919"][0].forEach((x) => (x.count = 10));
                     const Alpha = {
                         _id: "63da4dbee8fa73e22500001a",
                         areaType: 10,
@@ -350,7 +350,10 @@ class Mod {
                                     const count = item._props.StackSlots[0]._max_count;
                                     const ammo = item._props.StackSlots[0]._props.filters[0].Filter[0];
                                     const value = Math.round(getItemInHandbook(ammo).Price * count);
-                                    handbook.Items.find((x) => x.Id == item._id).Price = value;
+									
+									if (handbook.Items.find((x) => x.Id == item._id) !== undefined ){
+										handbook.Items.find((x) => x.Id == item._id).Price = value;
+									}
                                 }
                                 catch (error) {
                                     logger.warning(`handbook.Items.find((x) => x.Id == item._id).Price = value function failed bacause of the other mod. Ignore this error safely and continue. Send bug report.`);
@@ -1220,7 +1223,7 @@ class Mod {
                     skier.base.balance_eur = 700000;
                     skier.base.loyaltyLevels.forEach((x) => (x.minSalesSum = Math.round(x.minSalesSum / euroPrice)));
                     for (const barter in skier.assort.barter_scheme) {
-                        if (skier.assort.barter_scheme[barter][0][0]._tpl == "5449016a4bdc2d6f028b456f" && barter != "63d385b6b3eba6c95d0eee0c") {
+                        if (skier.assort.barter_scheme[barter][0][0]._tpl == "5449016a4bdc2d6f028b456f" && barter != "64806248470acaccd803ad2d") {
                             skier.assort.barter_scheme[barter][0][0].count = roundWithPrecision(skier.assort.barter_scheme[barter][0][0].count / euroPrice, 2);
                             skier.assort.barter_scheme[barter][0][0]._tpl = "569668774bdc2da2298b4568";
                         }
@@ -1249,19 +1252,19 @@ class Mod {
             }
             if (config_json_1.default.TraderChanges.Reasonably_Priced_Cases.enabled == true) {
                 try {
-                    therapist.assort.barter_scheme["63d385d7b3eba6c95d0f0352"][0].forEach((x) => (x.count = 5)); // THICC case (LEDX)
-                    therapist.assort.barter_scheme["63d385d7b3eba6c95d0f036e"][0].forEach((x) => (x.count = 10)); // THICC case (Moonshine)
-                    therapist.assort.barter_scheme["63d385d7b3eba6c95d0f0334"][0].forEach((x) => (x.count = 7256)); // Item case (Euro)
-                    therapist.assort.barter_scheme["63d385d7b3eba6c95d0f034a"][0].forEach((x) => (x.count = 8)); // Item case (OScope)
-                    therapist.assort.barter_scheme["63d385d7b3eba6c95d0f0380"][0].forEach((x) => (x.count = 20)); // Item case (Dogtags)
-                    therapist.assort.barter_scheme["63d385d7b3eba6c95d0f0382"][0].forEach((x) => (x.count = 15)); // Lucky Scav Junk box (Dogtags)
-                    therapist.assort.barter_scheme["63d385d7b3eba6c95d0f0350"][0].forEach((x) => (x.count = 961138)); // Lucky Scav Junk box (Rubles)
-                    therapist.assort.barter_scheme["63d385d7b3eba6c95d0f033c"][0].forEach((x) => (x.count = 290610)); // Medcase (Rubles)
-                    therapist.assort.barter_scheme["63d385d7b3eba6c95d0f0384"][0].forEach((x) => (x.count /= 10)); // LEDX (Dogtags) // Really BSG? 160 kills for a non-FIR item? REALLY?!
-                    peacekeeper.assort.barter_scheme["63d385cab3eba6c95d0eff5f"][0].forEach((x) => (x.count = x.count / 5 + 1)); // THICC case (SMT+Bluefolder)
-                    skier.assort.barter_scheme["63d385b7b3eba6c95d0eef5c"][0].forEach((x) => (x.count = 4)); // Weapon case (Moonshine)
-                    mechanic.assort.barter_scheme["63d385bfb3eba6c95d0ef4d1"][0].forEach((x) => (x.count = 5)); // Weapon case (Bitcoins)
-                    mechanic.assort.barter_scheme["63d385c0b3eba6c95d0ef5d8"][0].forEach((x) => (x.count = 10)); // THICC Weapon case (Bitcoins)
+                    therapist.assort.barter_scheme["6480625e470acaccd803c260"][0].forEach((x) => (x.count = 5)); // THICC case (LEDX)
+                    therapist.assort.barter_scheme["6480625e470acaccd803c27c"][0].forEach((x) => (x.count = 10)); // THICC case (Moonshine)
+                    therapist.assort.barter_scheme["6480625e470acaccd803c242"][0].forEach((x) => (x.count = 7256)); // Item case (Euro)
+                    therapist.assort.barter_scheme["6480625e470acaccd803c258"][0].forEach((x) => (x.count = 8)); // Item case (OScope)
+                    therapist.assort.barter_scheme["6480625e470acaccd803c28e"][0].forEach((x) => (x.count = 20)); // Item case (Dogtags)
+                    therapist.assort.barter_scheme["6480625e470acaccd803c290"][0].forEach((x) => (x.count = 15)); // Lucky Scav Junk box (Dogtags)
+                    therapist.assort.barter_scheme["6480625e470acaccd803c25e"][0].forEach((x) => (x.count = 961138)); // Lucky Scav Junk box (Rubles)
+                    therapist.assort.barter_scheme["6480625e470acaccd803c24a"][0].forEach((x) => (x.count = 290610)); // Medcase (Rubles)
+                    therapist.assort.barter_scheme["6480625e470acaccd803c292"][0].forEach((x) => (x.count /= 10)); // LEDX (Dogtags) // Really BSG? 160 kills for a non-FIR item? REALLY?!
+                    peacekeeper.assort.barter_scheme["64806259470acaccd803be6e"][0].forEach((x) => (x.count = x.count / 5 + 1)); // THICC case (SMT+Bluefolder)
+                    skier.assort.barter_scheme["64806249470acaccd803ae7d"][0].forEach((x) => (x.count = 4)); // Weapon case (Moonshine)
+                    mechanic.assort.barter_scheme["6480624f470acaccd803b3f4"][0].forEach((x) => (x.count = 5)); // Weapon case (Bitcoins)
+                    mechanic.assort.barter_scheme["64806250470acaccd803b4fb"][0].forEach((x) => (x.count = 10)); // THICC Weapon case (Bitcoins)
                 }
                 catch (error) {
                     logger.warning(`\nTraderChanges.Reasonably_Priced_Cases failed because of another mod. Send bug report. Continue safely.`);

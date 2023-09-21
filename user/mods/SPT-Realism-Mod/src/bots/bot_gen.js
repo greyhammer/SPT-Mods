@@ -15,6 +15,7 @@ const arrays_1 = require("../utils/arrays");
 const bots_1 = require("./bots");
 const bot_loot_serv_1 = require("./bot_loot_serv");
 const EquipmentSlots_1 = require("C:/snapshot/project/obj/models/enums/EquipmentSlots");
+const enums_1 = require("../utils/enums");
 const modConfig = require("../../config/config.json");
 const usecLO = require("../../db/bots/loadouts/PMCs/usecLO.json");
 const bearLO = require("../../db/bots/loadouts/PMCs/bearLO.json");
@@ -50,29 +51,45 @@ class BotGen extends BotGenerator_1.BotGenerator {
         const level = utils_1.ProfileTracker.level;
         var tier = 1;
         var tierArray = [1, 2, 3, 4];
-        if (level >= 0 && level < 5) {
+        if (level <= 5) {
             tier = utils.probabilityWeighter(tierArray, modConfig.botTierOdds1);
         }
-        if (level >= 5 && level < 10) {
+        else if (level <= 10) {
             tier = utils.probabilityWeighter(tierArray, modConfig.botTierOdds2);
         }
-        if (level >= 10 && level < 15) {
+        else if (level <= 15) {
             tier = utils.probabilityWeighter(tierArray, modConfig.botTierOdds3);
         }
-        if (level >= 15 && level < 20) {
+        else if (level <= 20) {
             tier = utils.probabilityWeighter(tierArray, modConfig.botTierOdds4);
         }
-        if (level >= 20 && level < 25) {
+        else if (level <= 25) {
             tier = utils.probabilityWeighter(tierArray, modConfig.botTierOdds5);
         }
-        if (level >= 25 && level < 30) {
+        else if (level <= 30) {
             tier = utils.probabilityWeighter(tierArray, modConfig.botTierOdds6);
         }
-        if (level >= 30 && level < 35) {
+        else if (level <= 35) {
             tier = utils.probabilityWeighter(tierArray, modConfig.botTierOdds7);
         }
-        if (level >= 35) {
+        else if (level > 35) {
             tier = utils.probabilityWeighter(tierArray, modConfig.botTierOdds8);
+        }
+        return tier;
+    }
+    botTierMapFactor(tier, utils) {
+        let rndNum = utils.pickRandNumOneInTen();
+        if (utils_1.RaidInfoTracker.mapName === "Laboratory" || utils_1.RaidInfoTracker.mapName === "laboratory") {
+            tier = Math.min(tier + 2, 4);
+        }
+        else if (rndNum <= 4 && (utils_1.RaidInfoTracker.mapName === "RezervBase" || utils_1.RaidInfoTracker.mapName === "ReserveBase" || utils_1.RaidInfoTracker.mapName === "rezervbase" || utils_1.RaidInfoTracker.mapName === "Streets of Tarkov" || utils_1.RaidInfoTracker.mapName === "factory4_night" || utils_1.RaidInfoTracker.TOD === "night")) {
+            tier = Math.min(tier + 1, 4);
+        }
+        else if (rndNum <= 2 && (utils_1.RaidInfoTracker.mapName === "shoreline" || utils_1.RaidInfoTracker.mapName === "Shoreline" || utils_1.RaidInfoTracker.mapName === "lighthouse" || utils_1.RaidInfoTracker.mapName === "Lighthouse" || utils_1.RaidInfoTracker.mapName === "Interchange" || utils_1.RaidInfoTracker.mapName === "interchange")) {
+            tier = Math.min(tier + 1, 4);
+        }
+        else if (rndNum <= 1 && (utils_1.RaidInfoTracker.mapName === "bigmap" || utils_1.RaidInfoTracker.mapName === "Customs")) {
+            tier = Math.min(tier + 1, 4);
         }
         return tier;
     }
@@ -96,7 +113,7 @@ class BotGen extends BotGenerator_1.BotGenerator {
             const isPMC = this.botHelper.isBotPmc(botRole);
             let pmcTier = 1;
             if (isPMC) {
-                pmcTier = this.getBotTier(utils);
+                pmcTier = this.botTierMapFactor(this.getBotTier(utils), utils);
                 const isUSEC = this.isBotUSEC(botRole);
                 const changeDiffi = modConfig.pmc_difficulty;
                 if (modConfig.bot_testing == true) {
@@ -154,6 +171,8 @@ class BotGen extends BotGenerator_1.BotGenerator {
                     this.logger.warning("=================");
                     this.logger.warning("bot " + botRole);
                     this.logger.warning("tier " + pmcTier);
+                    this.logger.warning("map " + utils_1.RaidInfoTracker.mapName);
+                    this.logger.warning("TOD " + utils_1.RaidInfoTracker.TOD);
                     this.logger.warning("===========");
                 }
             }
@@ -176,7 +195,7 @@ class BotGen extends BotGenerator_1.BotGenerator {
         if (!botGenerationDetails.isPlayerScav) {
             this.botEquipmentFilterService.filterBotEquipment(botJsonTemplate, botLevel.level, botGenerationDetails);
         }
-        bot.Info.Nickname = this.generateBotNickname(botJsonTemplate, botGenerationDetails.isPlayerScav, botRole);
+        bot.Info.Nickname = this.generateBotNickname(botJsonTemplate, botGenerationDetails.isPlayerScav, botRole, sessionId);
         const skipChristmasItems = !this.seasonalEventService.christmasEventEnabled();
         if (skipChristmasItems) {
             this.seasonalEventService.removeChristmasItemsFromBotInventory(botJsonTemplate.inventory, botGenerationDetails.role);
@@ -303,7 +322,7 @@ class BotInvGen extends BotInventoryGenerator_1.BotInventoryGenerator {
                 "_tpl": equipmentItemTpl,
                 "parentId": inventory.equipment,
                 "slotId": equipmentSlot,
-                ...myBotGenHelper.generateExtraPropertiesForItem(itemTemplate, botRole)
+                ...myBotGenHelper.myGenerateExtraPropertiesForItem(itemTemplate, botRole)
             };
             // use dynamic mod pool if enabled in config
             const botEquipmentRole = this.botGeneratorHelper.getBotEquipmentRole(botRole);
@@ -334,7 +353,13 @@ class BotWepGen extends BotWeaponGenerator_1.BotWeaponGenerator {
         const botHelper = tsyringe_1.container.resolve("BotHelper");
         const botEquipmentModPoolService = tsyringe_1.container.resolve("BotEquipmentModPoolService");
         const itemBaseClassService = tsyringe_1.container.resolve("ItemBaseClassService");
+        const durabilityLimitsHelper = tsyringe_1.container.resolve("DurabilityLimitsHelper");
+        const appContext = tsyringe_1.container.resolve("ApplicationContext");
+        const tables = this.databaseServer.getTables();
+        const myBotGenHelper = new BotGenHelper(this.logger, this.randomUtil, this.databaseServer, durabilityLimitsHelper, this.itemHelper, appContext, this.localisationService, this.configServer);
         const _botModGen = new BotEquipGenHelper(this.logger, this.jsonUtil, this.hashUtil, this.randomUtil, probabilityHelper, this.databaseServer, this.itemHelper, botEquipmentFilterService, itemBaseClassService, itemFilterService, profileHelper, this.botWeaponModLimitService, botHelper, this.botGeneratorHelper, this.botWeaponGeneratorHelper, this.localisationService, botEquipmentModPoolService, this.configServer);
+        const arrays = new arrays_1.Arrays(tables);
+        const utils = new utils_1.Utils(tables, arrays);
         const modPool = botTemplateInventory.mods;
         const weaponItemTemplate = this.itemHelper.getItem(weaponTpl)[1];
         if (!weaponItemTemplate) {
@@ -372,6 +397,28 @@ class BotWepGen extends BotWeaponGenerator_1.BotWeaponGenerator {
             const ubglTemplate = this.itemHelper.getItem(ubglMod._tpl)[1];
             ubglAmmoTpl = this.getWeightedCompatibleAmmo(botTemplateInventory.Ammo, ubglTemplate);
             this.fillUbgl(weaponWithModsArray, ubglMod, ubglAmmoTpl);
+        }
+        if (utils_1.ModTracker.batteryModPresent == true) {
+            let tempWeaponArray = weaponWithModsArray;
+            for (let i in tempWeaponArray) {
+                let item = tables.templates.items[weaponWithModsArray[i]._tpl];
+                if ((item._id != enums_1.ParentClasses.NIGHTVISION && item._id != "5d21f59b6dbe99052b54ef83" &&
+                    (item._parent == enums_1.ParentClasses.SPECIAL_SCOPE || item._parent == enums_1.ParentClasses.NIGHTVISION || item._parent == "5d21f59b6dbe99052b54ef83")) ||
+                    (item._parent == enums_1.ParentClasses.COLLIMATOR || item._parent == enums_1.ParentClasses.COMPACT_COLLIMATOR)) {
+                    for (let slot in item._props.Slots) {
+                        if (item._props.Slots[slot]._name === "mod_equipment") {
+                            let batteryId = item._props.Slots[slot]._props.filters[0].Filter[0];
+                            let batteryItem = {
+                                _id: this.hashUtil.generate(),
+                                _tpl: batteryId,
+                                parentId: weaponWithModsArray[i]._id,
+                                slotId: "mod_equipment",
+                            };
+                            weaponWithModsArray.push(batteryItem);
+                        }
+                    }
+                }
+            }
         }
         return {
             weapon: weaponWithModsArray,
@@ -693,7 +740,9 @@ class BotEquipGenHelper extends BotEquipmentModGenerator_1.BotEquipmentModGenera
             // Check weapon has slot for mod to fit in
             const modsParentSlot = this.getModItemSlot(modSlot, parentTemplate);
             if (!modsParentSlot) {
-                this.logger.warning(this.localisationService.getText("bot-weapon_missing_mod_slot", { modSlot: modSlot, weaponId: parentTemplate._id, weaponName: parentTemplate._name }));
+                if (modConfig.logEverything == true) {
+                    this.logger.warning(this.localisationService.getText("bot-weapon_missing_mod_slot", { modSlot: modSlot, weaponId: parentTemplate._id, weaponName: parentTemplate._name }));
+                }
                 continue;
             }
             // Check spawn chance of mod

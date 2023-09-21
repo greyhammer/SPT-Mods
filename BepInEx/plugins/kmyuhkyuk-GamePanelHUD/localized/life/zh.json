@@ -18,7 +18,7 @@
     "Hydration": "口渴度",
     "When Hydration < 10%, Current Color change to Warning": "当口渴度小于百分之10, 当前值颜色更改为警告",
     "Energy": "能量值",
-    "When Energy < 10%, Current Color change to Red Warning": "当能量小于百分之10, 当前值颜色更改为警告",
+    "When Energy < 10%, Current Color change to Warning": "当能量小于百分之10, 当前值颜色更改为警告",
     "Buff Animation Speed": "增益动画速度",
     "Maximum": "最大值",
     "Zeros": "零",

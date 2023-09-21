@@ -7,15 +7,15 @@
         "Bots": [
           {
             "BotType": "assault",
-            "MaxBotCount": 2
+            "MaxBotCount": 3
           },
           {
             "BotType": "assault",
-            "MaxBotCount": 2
+            "MaxBotCount": 3
           }
         ],
-        "Time_min": 15,
-        "Time_max": 30,
+        "Time_min": 30,
+        "Time_max": 60,
         "RandomTimeSpawn": false,
         "OnlySpawnOnce": true,
         "BotZone": ["BotZone"]
@@ -28,8 +28,8 @@
             "MaxBotCount": 2
           }
         ],
-        "Time_min": 120,
-        "Time_max": 600,
+        "Time_min": 180,
+        "Time_max": 300,
         "RandomTimeSpawn": false,
         "OnlySpawnOnce": false,
         "BotZone": ["BotZone"]

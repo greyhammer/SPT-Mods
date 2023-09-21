@@ -2,6 +2,7 @@ import { IPmcData } from "@spt-aki/models/eft/common/IPmcData";
 import { Item } from "@spt-aki/models/eft/common/tables/IItem";
 import { IDatabaseTables } from "@spt-aki/models/spt/server/IDatabaseTables";
 import { Arrays } from "./arrays";
+import * as path from 'path';
 
 const fs = require('fs');
 const modConfig = require("../../config/config.json");
@@ -78,7 +79,7 @@ export class Utils {
 
 
 
-    public probabilityWeighter(items: any, weights: number[]) {
+    public probabilityWeighter(items: any, weights: number[]): number {
 
         function add(a, b) { return a + b; }
 
@@ -123,12 +124,12 @@ export class Utils {
     }
 
     public saveToJSONFile(data: any, filePath: string) {
-
-        let dir = __dirname;
-        let dirArray = dir.split("\\");
-        let modFolder = (`${dirArray[dirArray.length - 4]}/${dirArray[dirArray.length - 3]}/${dirArray[dirArray.length - 2]}/`);
-        fs.writeFile(modFolder + filePath, JSON.stringify(data, null, 4), function (err) {
-            if (err) throw err;
+        const baseFolderPath = path.resolve(path.join(__dirname, '../../'));
+        fs.writeFile(path.join(baseFolderPath, filePath), JSON.stringify(data, null, 4), function (err) {
+            if (err) {
+                console.log(`Trying to save the config to ${path.join(baseFolderPath, filePath)} failed:`);
+                throw err;
+            }
         });
     }
 
@@ -142,6 +143,13 @@ export class Utils {
         return result;
     }
 }
+
+
+export class ModTracker{
+    static batteryModPresent: boolean = false;
+    static sainPresent: boolean = false;
+}
+
 
 export class ProfileTracker{
     static level: number = 1;
@@ -169,6 +177,7 @@ export class BotTierTracker {
     static killaTier: number = 1;
     static tagillaTier: number = 1;
     static sanitarTier: number = 1;
+    static reshallaTier: number = 1;
 
     public getTier(botType: string): number {
         if (botType === "assault") {
@@ -191,6 +200,9 @@ export class BotTierTracker {
         }
         if (botType === "bosssanitar" || botType === "followersanitar") {
             return BotTierTracker.sanitarTier;
+        }
+        if (botType === "bossbully" || botType === "followerbully") {
+            return BotTierTracker.reshallaTier;
         }
         return 0;
     }
