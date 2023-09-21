@@ -1,9 +1,8 @@
 # SPT-Mods
 
-
 This is v1 of OZR mods for Single Player Tarkov, designed to be run with SPT-AKI 3.5.8
 
-Version 2 has since released to support SPT-AKI 3.6.1
+Version 2 has since released to support SPT-AKI 3.6.1. This branch is kept for legacy purposes.
 
 To use these mods, you must already have Single Player Tarkov installed and updated to the latest version.
 
