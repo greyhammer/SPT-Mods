@@ -1,3 +1,7 @@
+# 2.1.0
+- Added mod
+  - `Take a Break` by `Kobrakon`
+
 # 2.0.0
 - Replaced existing mods with versions that support SPT-AKI v3.6.x
 - Added mods

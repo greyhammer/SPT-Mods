@@ -43,6 +43,7 @@ Current Mods
 * [Softcore](https://hub.sp-tarkov.com/files/file/998-softcore) v1.4.0
 * [SPT Realism Mod](https://hub.sp-tarkov.com/files/file/606-spt-realism-mod/) v0.11.2
 * [Swag + Donuts - Dynamic Spawn Waves And Custom Spawn Points](https://hub.sp-tarkov.com/files/file/878-swag-simple-wave-ai-generator/#tab_dbb2762a38dd640140e33993c19f0e5cd129c780) v3.1.4
+* [Take A Break](https://hub.sp-tarkov.com/files/file/671-take-a-break/) v2.0.1
 * [TheBlacklist](https://hub.sp-tarkov.com/files/file/1012-the-blacklist-flea-market-enhancements) v1.3.0
 * [Valens Has The Power](https://hub.sp-tarkov.com/files/file/613-valens-has-the-power) v1.2.1
 * [Visceral Dismemberment](https://hub.sp-tarkov.com/files/file/1092-visceral-dismemberment/#tab_9a55fd25c7cb92ce0fe6aa067b18169b3daa3f7c) v1.1 (3.6.0)
